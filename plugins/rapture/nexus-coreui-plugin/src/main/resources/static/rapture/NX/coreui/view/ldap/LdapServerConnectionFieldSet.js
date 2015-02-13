@@ -32,9 +32,13 @@ Ext.define('NX.coreui.view.ldap.LdapServerConnectionFieldSet', {
 
   items: [
     {
+      xtype: 'hiddenfield',
+      name: 'id'
+    },
+    {
       name: 'name',
       itemId: 'name',
-      fieldLabel: NX.I18n.get('ADMIN_LDAP_CONNECTION_NAME'),
+      fieldLabel: NX.I18n.get('ADMIN_LDAP_CONNECTION_NAME')
     },
     {
       xtype: 'combo',

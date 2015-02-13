@@ -559,10 +559,10 @@ Ext.define('NX.coreui.app.PluginStrings', {
     // Admin -> Security -> LDAP
     ADMIN_LDAP_TITLE: 'LDAP',
     ADMIN_LDAP_SUBTITLE: 'Manage LDAP server configuration',
-    ADMIN_LDAP_UPDATE_SUCCESS: 'LDAP server updated: ',
+    ADMIN_LDAP_UPDATE_SUCCESS: 'LDAP server updated: {0}',
     ADMIN_LDAP_UPDATE_ERROR: 'You do not have permission to update LDAP servers',
     ADMIN_LDAP_CREATE_TITLE: 'Create LDAP Connection',
-    ADMIN_LDAP_CREATE_SUCCESS: 'LDAP server created: ',
+    ADMIN_LDAP_CREATE_SUCCESS: 'LDAP server created: {0}',
     ADMIN_LDAP_CREATE_ERROR: 'You do not have permission to create LDAP servers',
     ADMIN_LDAP_DELETE_SUCCESS: 'LDAP server deleted: {0}',
     ADMIN_LDAP_ORDER_TITLE: 'Change LDAP servers ordering',

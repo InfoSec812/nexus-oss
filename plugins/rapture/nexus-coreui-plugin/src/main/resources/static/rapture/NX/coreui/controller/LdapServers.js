@@ -50,7 +50,10 @@ Ext.define('NX.coreui.controller.LdapServers', {
     'ldap.LdapServerUserAndGroupFieldSet',
     'ldap.LdapServerUserAndGroupForm',
     'ldap.LdapServerUserAndGroupLoginCredentials',
-    'ldap.LdapServerUserAndGroupMappingTestResults'
+    'ldap.LdapServerUserAndGroupMappingTestResults',
+    'ldap.LdapServerConnectionAdd',
+    'ldap.LdapServerUserAndGroupAdd',
+    'ldap.LdapServerBackupAdd'
   ],
   refs: [
     { ref: 'feature', selector: 'nx-coreui-ldapserver-feature' },
@@ -104,19 +107,25 @@ Ext.define('NX.coreui.controller.LdapServers', {
           beforerender: me.loadTemplates
         },
         'nx-coreui-ldapserver-list button[action=new]': {
-          click: me.showAddWindow
+          click: me.showConnectionPanel
         },
-        'nx-coreui-ldapserver-add form': {
-          submitted: me.onSettingsSubmitted
+        'nx-coreui-ldapserver-connection-add button[action=next]': {
+          click: me.showUserAndGroupPanel
         },
-        'nx-coreui-ldapserver-connection-form': {
-          submitted: me.onSettingsSubmitted
+        'nx-coreui-ldapserver-userandgroup-add button[action=next]': {
+          click: me.showBackupPanel
         },
-        'nx-coreui-ldapserver-backup-form': {
-          submitted: me.onSettingsSubmitted
+        'nx-coreui-ldapserver-backup-add button[action=add]': {
+          click: me.createServer
         },
-        'nx-coreui-ldapserver-userandgroup-form': {
-          submitted: me.onSettingsSubmitted
+        'nx-coreui-ldapserver-connection-form button[action=save]': {
+          click: me.updateServer
+        },
+        'nx-coreui-ldapserver-backup-form button[action=save]': {
+          click: me.updateServer
+        },
+        'nx-coreui-ldapserver-userandgroup-form button[action=save]': {
+          click: me.updateServer
         },
         'nx-coreui-ldapserver-list button[action=changeorder]': {
           click: me.showChangeOrder,
@@ -177,12 +186,12 @@ Ext.define('NX.coreui.controller.LdapServers', {
   /**
    * @private
    */
-  showAddWindow: function() {
+  showConnectionPanel: function() {
     var me = this,
       feature = me.getFeature();
 
     // Show the first panel in the create wizard, and set the breadcrumb
-    feature.setItemName(1, NX.I18n.get('ADMIN_LDAP_CREATE_TITLE'));
+    feature.setItemName(1, NX.I18n.get('ADMIN_LDAP_DETAILS_CONNECTION_TAB'));
     me.loadCreateWizard(1, true, Ext.widget({
       xtype: 'panel',
       layout: {
@@ -193,7 +202,59 @@ Ext.define('NX.coreui.controller.LdapServers', {
       items: [
         { xtype: 'nx-drilldown-actions' },
         {
-          xtype: 'nx-coreui-ldapserver-add',
+          xtype: 'nx-coreui-ldapserver-connection-add',
+          flex: 1
+        }
+      ]
+    }));
+  },
+
+  /**
+   * @private
+   */
+  showUserAndGroupPanel: function() {
+    var me = this,
+      feature = me.getFeature();
+
+    // Show the first panel in the create wizard, and set the breadcrumb
+    feature.setItemName(2, NX.I18n.get('ADMIN_LDAP_DETAILS_GROUP_TAB'));
+    me.loadCreateWizard(2, true, Ext.widget({
+      xtype: 'panel',
+      layout: {
+        type: 'vbox',
+        align: 'stretch',
+        pack: 'start'
+      },
+      items: [
+        { xtype: 'nx-drilldown-actions' },
+        {
+          xtype: 'nx-coreui-ldapserver-userandgroup-add',
+          flex: 1
+        }
+      ]
+    }));
+  },
+
+  /**
+   * @private
+   */
+  showBackupPanel: function() {
+    var me = this,
+      feature = me.getFeature();
+
+    // Show the first panel in the create wizard, and set the breadcrumb
+    feature.setItemName(3, NX.I18n.get('ADMIN_LDAP_DETAILS_BACKUP_TAB'));
+    me.loadCreateWizard(3, true, Ext.widget({
+      xtype: 'panel',
+      layout: {
+        type: 'vbox',
+        align: 'stretch',
+        pack: 'start'
+      },
+      items: [
+        { xtype: 'nx-drilldown-actions' },
+        {
+          xtype: 'nx-coreui-ldapserver-backup-add',
           flex: 1
         }
       ]
@@ -205,6 +266,70 @@ Ext.define('NX.coreui.controller.LdapServers', {
    */
   showChangeOrder: function() {
     Ext.widget('nx-coreui-ldapserver-changeorder');
+  },
+
+  /**
+   * @private
+   * Update an existing LDAP entry
+   */
+  updateServer: function() {
+    var me = this,
+      feature = me.getFeature(),
+      connectionForm = feature.down('nx-coreui-ldapserver-connection').down('nx-coreui-ldapserver-connection-form'),
+      userGroupForm = feature.down('nx-coreui-ldapserver-userandgroup').down('nx-coreui-ldapserver-userandgroup-form'),
+      backupForm = feature.down('nx-coreui-ldapserver-backup').down('nx-coreui-ldapserver-backup-form'),
+      values = {};
+
+    // Get fields from all relevant forms
+    Ext.apply(values, connectionForm.getValues());
+    Ext.apply(values, userGroupForm.getValues());
+    Ext.apply(values, backupForm.getValues());
+
+    console.log(JSON.stringify(values));
+
+    NX.direct.ldap_LdapServer.update(values, function(response) {
+      if (Ext.isObject(response)) {
+        if (response.success) {
+          NX.Messages.add({
+            text: NX.I18n.format('ADMIN_LDAP_UPDATE_SUCCESS',
+              me.getDescription(me.getLdapServerModel().create(response.data))),
+            type: 'success'
+          });
+          me.loadStore(Ext.emptyFn);
+        }
+      }
+    });
+  },
+
+  /**
+   * @private
+   * Create a new LDAP entry
+   */
+  createServer: function() {
+    var me = this,
+      feature = me.getFeature(),
+      connectionForm = feature.down('nx-coreui-ldapserver-connection-add').down('nx-coreui-ldapserver-connection-form'),
+      userGroupForm = feature.down('nx-coreui-ldapserver-userandgroup-add').down('nx-coreui-ldapserver-userandgroup-form'),
+      backupForm = feature.down('nx-coreui-ldapserver-backup-add').down('nx-coreui-ldapserver-backup-form'),
+      values = {};
+
+    // Get fields from all relevant forms
+    Ext.apply(values, connectionForm.getValues());
+    Ext.apply(values, userGroupForm.getValues());
+    Ext.apply(values, backupForm.getValues());
+
+    NX.direct.ldap_LdapServer.create(values, function(response) {
+      if (Ext.isObject(response)) {
+        if (response.success) {
+          NX.Messages.add({
+            text: NX.I18n.format('ADMIN_LDAP_CREATE_SUCCESS',
+              me.getDescription(me.getLdapServerModel().create(response.data))),
+            type: 'success'
+          });
+          me.loadStoreAndSelect(response.data.id, false);
+        }
+      }
+    });
   },
 
   /**
