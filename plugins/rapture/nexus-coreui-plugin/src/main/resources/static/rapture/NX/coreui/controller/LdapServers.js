@@ -285,9 +285,14 @@ Ext.define('NX.coreui.controller.LdapServers', {
     Ext.apply(values, userGroupForm.getValues());
     Ext.apply(values, backupForm.getValues());
 
-    console.log(JSON.stringify(values));
+    var modelData = connectionForm.getForm().getRecord().getData(false);
 
-    NX.direct.ldap_LdapServer.update(values, function(response) {
+    Object.keys(values).forEach(function(field) {
+      delete modelData[field];
+    });
+    Ext.apply(modelData, values);
+
+    NX.direct.ldap_LdapServer.update(modelData, function(response) {
       if (Ext.isObject(response)) {
         if (response.success) {
           NX.Messages.add({
@@ -330,21 +335,6 @@ Ext.define('NX.coreui.controller.LdapServers', {
         }
       }
     });
-  },
-
-  /**
-   * @private
-   * Reload store after add/update.
-   */
-  onSettingsSubmitted: function(form, action) {
-    var me = this,
-        win = form.up('nx-coreui-ldapserver-add');
-
-    if (win) {
-      me.loadStoreAndSelect(action.result.data.id, false);
-    } else {
-      me.loadStore(Ext.emptyFn);
-    }
   },
 
   /**
