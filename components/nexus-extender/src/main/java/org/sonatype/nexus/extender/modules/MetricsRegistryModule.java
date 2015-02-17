@@ -10,22 +10,26 @@
  * of Sonatype, Inc. Apache Maven is a trademark of the Apache Software Foundation. M2eclipse is a trademark of the
  * Eclipse Foundation. All other trademarks are the property of their respective owners.
  */
-package org.sonatype.nexus.web;
+package org.sonatype.nexus.extender.modules;
 
-import javax.inject.Inject;
-
-import org.sonatype.nexus.web.internal.DynamicFilterPipeline;
-
-import com.google.inject.servlet.GuiceFilter;
+import com.codahale.metrics.MetricRegistry;
+import com.codahale.metrics.SharedMetricRegistries;
+import com.codahale.metrics.health.HealthCheckRegistry;
+import com.google.inject.AbstractModule;
 
 /**
- * {@link GuiceFilter} that supports a dynamic ordered pipeline of filters and servlets.
+ * Provides access to the shared metrics and healthcheck registries.
+ * 
+ * @since 3.0
  */
-public final class NexusGuiceFilter
-    extends GuiceFilter
+public class MetricsRegistryModule
+    extends AbstractModule
 {
-  @Inject
-  NexusGuiceFilter(DynamicFilterPipeline pipeline) {
-    super(pipeline);
+  static final HealthCheckRegistry HEALTH_CHECK_REGISTRY = new HealthCheckRegistry();
+
+  @Override
+  protected void configure() {
+    bind(MetricRegistry.class).toInstance(SharedMetricRegistries.getOrCreate("nexus"));
+    bind(HealthCheckRegistry.class).toInstance(HEALTH_CHECK_REGISTRY);
   }
 }
