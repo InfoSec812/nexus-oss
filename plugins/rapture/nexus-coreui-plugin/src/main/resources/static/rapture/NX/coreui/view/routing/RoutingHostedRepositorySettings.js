@@ -48,8 +48,6 @@ Ext.define('NX.coreui.view.routing.RoutingHostedRepositorySettings', {
       hidden: true,
       ui: 'nx-subsection',
 
-      margin: 10,
-
       items: [
         {
           xtype: 'displayfield',
