@@ -191,7 +191,7 @@ Ext.define('NX.coreui.controller.LdapServers', {
       feature = me.getFeature();
 
     // Show the first panel in the create wizard, and set the breadcrumb
-    feature.setItemName(1, NX.I18n.get('ADMIN_LDAP_DETAILS_CONNECTION_TAB'));
+    feature.setItemName(1, NX.I18n.get('ADMIN_LDAP_CREATE_CONNECTION'));
     me.loadCreateWizard(1, true, Ext.widget({
       xtype: 'panel',
       layout: {
@@ -217,7 +217,7 @@ Ext.define('NX.coreui.controller.LdapServers', {
       feature = me.getFeature();
 
     // Show the first panel in the create wizard, and set the breadcrumb
-    feature.setItemName(2, NX.I18n.get('ADMIN_LDAP_DETAILS_GROUP_TAB'));
+    feature.setItemName(2, NX.I18n.get('ADMIN_LDAP_CREATE_GROUP'));
     me.loadCreateWizard(2, true, Ext.widget({
       xtype: 'panel',
       layout: {
@@ -243,7 +243,7 @@ Ext.define('NX.coreui.controller.LdapServers', {
       feature = me.getFeature();
 
     // Show the first panel in the create wizard, and set the breadcrumb
-    feature.setItemName(3, NX.I18n.get('ADMIN_LDAP_DETAILS_BACKUP_TAB'));
+    feature.setItemName(3, NX.I18n.get('ADMIN_LDAP_CREATE_BACKUP'));
     me.loadCreateWizard(3, true, Ext.widget({
       xtype: 'panel',
       layout: {
