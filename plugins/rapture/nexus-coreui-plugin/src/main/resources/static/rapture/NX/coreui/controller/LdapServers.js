@@ -112,10 +112,7 @@ Ext.define('NX.coreui.controller.LdapServers', {
         'nx-coreui-ldapserver-connection-add button[action=next]': {
           click: me.showUserAndGroupPanel
         },
-        'nx-coreui-ldapserver-userandgroup-add button[action=next]': {
-          click: me.showBackupPanel
-        },
-        'nx-coreui-ldapserver-backup-add button[action=add]': {
+        'nx-coreui-ldapserver-userandgroup-add button[action=add]': {
           click: me.createServer
         },
         'nx-coreui-ldapserver-connection-form button[action=save]': {
@@ -238,32 +235,6 @@ Ext.define('NX.coreui.controller.LdapServers', {
   /**
    * @private
    */
-  showBackupPanel: function() {
-    var me = this,
-      feature = me.getFeature();
-
-    // Show the first panel in the create wizard, and set the breadcrumb
-    feature.setItemName(3, NX.I18n.get('ADMIN_LDAP_CREATE_BACKUP'));
-    me.loadCreateWizard(3, true, Ext.widget({
-      xtype: 'panel',
-      layout: {
-        type: 'vbox',
-        align: 'stretch',
-        pack: 'start'
-      },
-      items: [
-        { xtype: 'nx-drilldown-actions' },
-        {
-          xtype: 'nx-coreui-ldapserver-backup-add',
-          flex: 1
-        }
-      ]
-    }));
-  },
-
-  /**
-   * @private
-   */
   showChangeOrder: function() {
     Ext.widget('nx-coreui-ldapserver-changeorder');
   },
@@ -315,13 +286,11 @@ Ext.define('NX.coreui.controller.LdapServers', {
       feature = me.getFeature(),
       connectionForm = feature.down('nx-coreui-ldapserver-connection-add').down('nx-coreui-ldapserver-connection-form'),
       userGroupForm = feature.down('nx-coreui-ldapserver-userandgroup-add').down('nx-coreui-ldapserver-userandgroup-form'),
-      backupForm = feature.down('nx-coreui-ldapserver-backup-add').down('nx-coreui-ldapserver-backup-form'),
       values = {};
 
     // Get fields from all relevant forms
     Ext.apply(values, connectionForm.getValues());
     Ext.apply(values, userGroupForm.getValues());
-    Ext.apply(values, backupForm.getValues());
 
     NX.direct.ldap_LdapServer.create(values, function(response) {
       if (Ext.isObject(response)) {
