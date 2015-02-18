@@ -34,6 +34,7 @@ Ext.define('NX.coreui.view.ldap.LdapServerBackupFieldSet', {
       xtype: 'checkbox',
       name: 'backupMirrorEnabled',
       fieldLabel: NX.I18n.get('ADMIN_LDAP_BACKUP_USE'),
+      inputValue: true,
       listeners: {
         change: function (checkbox, newValue) {
           checkbox.up('panel').showOrHide('backupMirror', newValue);
