@@ -563,7 +563,6 @@ Ext.define('NX.coreui.app.PluginStrings', {
     ADMIN_LDAP_UPDATE_ERROR: 'You do not have permission to update LDAP servers',
     ADMIN_LDAP_CREATE_CONNECTION: 'Create LDAP Connection',
     ADMIN_LDAP_CREATE_GROUP: 'Choose Users and Groups',
-    ADMIN_LDAP_CREATE_BACKUP: 'Backup Mirror?',
     ADMIN_LDAP_CREATE_SUCCESS: 'LDAP server created: {0}',
     ADMIN_LDAP_CREATE_ERROR: 'You do not have permission to create LDAP servers',
     ADMIN_LDAP_DELETE_SUCCESS: 'LDAP server deleted: {0}',

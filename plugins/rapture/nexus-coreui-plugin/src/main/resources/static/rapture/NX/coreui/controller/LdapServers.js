@@ -52,8 +52,7 @@ Ext.define('NX.coreui.controller.LdapServers', {
     'ldap.LdapServerUserAndGroupLoginCredentials',
     'ldap.LdapServerUserAndGroupMappingTestResults',
     'ldap.LdapServerConnectionAdd',
-    'ldap.LdapServerUserAndGroupAdd',
-    'ldap.LdapServerBackupAdd'
+    'ldap.LdapServerUserAndGroupAdd'
   ],
   refs: [
     { ref: 'feature', selector: 'nx-coreui-ldapserver-feature' },
