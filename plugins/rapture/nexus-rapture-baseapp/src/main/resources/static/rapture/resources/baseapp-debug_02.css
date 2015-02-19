@@ -14490,6 +14490,27 @@
 }
 
 /**
+ * Styles which allow for horizontal alignment of form fields
+ */
+/* line 29, ../../../baseapp/packages/rapture-theme/sass/src/Ext/form/field/Base.scss */
+.nx-float-left {
+  position: relative;
+  float: left !important;
+  margin-right: 5px;
+}
+
+/* line 35, ../../../baseapp/packages/rapture-theme/sass/src/Ext/form/field/Base.scss */
+.nx-interstitial-label {
+  font-size: 13px;
+  padding-top: 5px;
+}
+
+/* line 40, ../../../baseapp/packages/rapture-theme/sass/src/Ext/form/field/Base.scss */
+.nx-clear-both {
+  clear: both;
+}
+
+/**
  * @class Ext.form.Fieldset
  */
 /* line 5, ../../../baseapp/packages/rapture-theme/sass/src/Ext/form/Fieldset.scss */
