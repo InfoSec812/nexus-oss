@@ -134,19 +134,19 @@ Ext.define('NX.coreui.controller.LdapServers', {
         'nx-coreui-ldapserver-changeorder button[action=save]': {
           click: me.changeOrder
         },
-        'nx-coreui-ldapserver-add button[action=verifyconnection]': {
+        'nx-coreui-ldapserver-connection-add button[action=verifyconnection]': {
           click: me.verifyConnection
         },
         'nx-coreui-ldapserver-connection button[action=verifyconnection]': {
           click: me.verifyConnection
         },
-        'nx-coreui-ldapserver-add button[action=verifyusermapping]': {
+        'nx-coreui-ldapserver-userandgroup-add button[action=verifyusermapping]': {
           click: me.verifyUserMapping
         },
         'nx-coreui-ldapserver-userandgroup button[action=verifyusermapping]': {
           click: me.verifyUserMapping
         },
-        'nx-coreui-ldapserver-add button[action=verifylogin]': {
+        'nx-coreui-ldapserver-userandgroup-add button[action=verifylogin]': {
           click: me.showLoginCredentialsWindow
         },
         'nx-coreui-ldapserver-userandgroup button[action=verifylogin]': {
