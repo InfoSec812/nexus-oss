@@ -24,13 +24,89 @@ Ext.define('NX.coreui.view.ldap.LdapServerBackupFieldSet', {
     'NX.I18n'
   ],
 
-  defaults: {
-    xtype: 'textfield',
-    allowBlank: false
-  },
-
   items: [
     {
+      xtype: 'nx-optionalfieldset',
+      title: NX.I18n.get('ADMIN_LDAP_BACKUP_USE'),
+      checkboxToggle: true,
+      checkboxName: 'backupMirrorEnabled',
+      collapsed: true,
+
+      defaults: {
+        xtype: 'textfield',
+        allowBlank: false
+      },
+
+      items: [
+        {
+          xtype: 'label',
+          text: NX.I18n.get('ADMIN_LDAP_CONNECTION_ADDRESS'),
+          style: {
+            fontWeight: 'bold',
+            display: 'block',
+            marginTop: '10px',
+            marginBottom: '5px'
+          }
+        },
+        {
+          xtype: 'label',
+          text: NX.I18n.get('ADMIN_LDAP_CONNECTION_ADDRESS_HELP'),
+          style: {
+            fontSize: '10px',
+            display: 'block',
+            marginBottom: '1px'
+          }
+        },
+        {
+          xtype: 'combo',
+          name: 'backupMirrorProtocol',
+          cls: 'nx-float-left',
+          blankText: 'Required',
+          width: 85,
+          emptyText: NX.I18n.get('ADMIN_LDAP_CONNECTION_PROTOCOL_PLACEHOLDER'),
+          editable: false,
+          store: [
+            ['ldap', NX.I18n.get('ADMIN_LDAP_CONNECTION_PROTOCOL_PLAIN_ITEM')],
+            ['ldaps', NX.I18n.get('ADMIN_LDAP_CONNECTION_PROTOCOL_SECURE_ITEM')]
+          ],
+          queryMode: 'local',
+          backupMirror: [true]
+        },
+        {
+          xtype: 'label',
+          cls: 'nx-float-left nx-interstitial-label',
+          text: '://'
+        },
+        {
+          name: 'backupMirrorHost',
+          cls: 'nx-float-left',
+          blankText: 'Required',
+          width: 405,
+          emptyText: NX.I18n.get('ADMIN_LDAP_CONNECTION_HOST_PLACEHOLDER'),
+          itemId: 'backupMirrorHost',
+          backupMirror: [true]
+        },
+        {
+          xtype: 'label',
+          cls: 'nx-float-left nx-interstitial-label',
+          text: ':'
+        },
+        {
+          xtype: 'numberfield',
+          name: 'backupMirrorPort',
+          cls: 'nx-float-left',
+          blankText: 'Required',
+          width: 75,
+          emptyText: NX.I18n.get('ADMIN_LDAP_CONNECTION_PORT_PLACEHOLDER'),
+          itemId: 'backupMirrorPort',
+          minValue: 1,
+          maxValue: 65535,
+          allowDecimals: false,
+          allowExponential: false,
+          backupMirror: [true]
+        }
+      ]
+    /*{
       xtype: 'checkbox',
       name: 'backupMirrorEnabled',
       fieldLabel: NX.I18n.get('ADMIN_LDAP_BACKUP_USE'),
@@ -39,38 +115,7 @@ Ext.define('NX.coreui.view.ldap.LdapServerBackupFieldSet', {
         change: function (checkbox, newValue) {
           checkbox.up('panel').showOrHide('backupMirror', newValue);
         }
-      }
-    },
-    {
-      xtype: 'combo',
-      name: 'backupMirrorProtocol',
-      fieldLabel: NX.I18n.get('ADMIN_LDAP_CONNECTION_PROTOCOL'),
-      emptyText: NX.I18n.get('ADMIN_LDAP_CONNECTION_PROTOCOL_PLACEHOLDER'),
-      editable: false,
-      store: [
-        ['ldap', NX.I18n.get('ADMIN_LDAP_CONNECTION_PROTOCOL_PLAIN_ITEM')],
-        ['ldaps', NX.I18n.get('ADMIN_LDAP_CONNECTION_PROTOCOL_SECURE_ITEM')]
-      ],
-      queryMode: 'local',
-      backupMirror: [true]
-    },
-    {
-      name: 'backupMirrorHost',
-      itemId: 'backupMirrorHost',
-      fieldLabel: NX.I18n.get('ADMIN_LDAP_CONNECTION_HOST'),
-      backupMirror: [true]
-    },
-    {
-      xtype: 'numberfield',
-      name: 'backupMirrorPort',
-      itemId: 'backupMirrorPort',
-      fieldLabel: NX.I18n.get('ADMIN_LDAP_CONNECTION_PORT'),
-      helpText: NX.I18n.get('ADMIN_LDAP_CONNECTION_PORT_HELP'),
-      minValue: 1,
-      maxValue: 65535,
-      allowDecimals: false,
-      allowExponential: false,
-      backupMirror: [true]
+      }*/
     }
   ],
 
@@ -82,7 +127,7 @@ Ext.define('NX.coreui.view.ldap.LdapServerBackupFieldSet', {
 
     me.callParent(arguments);
 
-    me.showOrHide('backupMirror', false);
+    //me.showOrHide('backupMirror', false);
   },
 
   /**
