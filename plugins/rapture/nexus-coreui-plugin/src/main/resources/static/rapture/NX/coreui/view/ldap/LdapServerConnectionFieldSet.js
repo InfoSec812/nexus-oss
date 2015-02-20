@@ -199,7 +199,7 @@ Ext.define('NX.coreui.view.ldap.LdapServerConnectionFieldSet', {
     {
       xtype: 'label',
       cls: 'nx-float-left nx-interstitial-label',
-      text: 'Wait '
+      text: NX.I18n.get('ADMIN_LDAP_CONNECTION_RULES_1')
     },
     {
       xtype: 'numberfield',
@@ -211,7 +211,7 @@ Ext.define('NX.coreui.view.ldap.LdapServerConnectionFieldSet', {
     {
       xtype: 'label',
       cls: 'nx-float-left nx-interstitial-label',
-      text: ' seconds before timeout. Retry after '
+      text: NX.I18n.get('ADMIN_LDAP_CONNECTION_RULES_2')
     },
     {
       xtype: 'numberfield',
@@ -223,7 +223,7 @@ Ext.define('NX.coreui.view.ldap.LdapServerConnectionFieldSet', {
     {
       xtype: 'label',
       cls: 'nx-float-left nx-interstitial-label',
-      text: ' seconds, at most '
+      text: NX.I18n.get('ADMIN_LDAP_CONNECTION_RULES_3')
     },
     {
       xtype: 'numberfield',
@@ -235,7 +235,7 @@ Ext.define('NX.coreui.view.ldap.LdapServerConnectionFieldSet', {
     {
       xtype: 'label',
       cls: 'nx-float-left nx-interstitial-label',
-      text: ' attempts'
+      text: NX.I18n.get('ADMIN_LDAP_CONNECTION_RULES_4')
     }
   ],
 

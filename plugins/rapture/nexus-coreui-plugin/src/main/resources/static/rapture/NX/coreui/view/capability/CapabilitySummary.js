@@ -37,7 +37,7 @@ Ext.define('NX.coreui.view.capability.CapabilitySummary', {
     me.items = [
       {
         layout: 'column',
-        title: NX.I18n.get('ADMIN_CAPABILITIES_DETAILS_SUMMARY_TAB'),
+        title: NX.I18n.get('ADMIN_CAPABILITIES_DETAILS_SUMMARY_SECTION'),
         weight: 10,
         items: [
           {
@@ -48,17 +48,17 @@ Ext.define('NX.coreui.view.capability.CapabilitySummary', {
       },
       {
         xtype: 'nx-coreui-capability-status',
-        title: NX.I18n.get('ADMIN_CAPABILITIES_DETAILS_STATUS_TAB'),
+        title: NX.I18n.get('ADMIN_CAPABILITIES_DETAILS_STATUS_SECTION'),
         weight: 20
       },
       {
         xtype: 'nx-coreui-capability-about',
-        title: NX.I18n.get('ADMIN_CAPABILITIES_DETAILS_ABOUT_TAB'),
+        title: NX.I18n.get('ADMIN_CAPABILITIES_DETAILS_ABOUT_SECTION'),
         weight: 30
       },
       {
         xtype: 'nx-settingsform',
-        title: NX.I18n.get('ADMIN_CAPABILITIES_DETAILS_NOTES_TAB'),
+        title: NX.I18n.get('ADMIN_CAPABILITIES_DETAILS_NOTES_SECTION'),
         weight: 40,
         api: {
           submit: 'NX.direct.capability_Capability.updateNotes'
