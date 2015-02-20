@@ -106,16 +106,6 @@ Ext.define('NX.coreui.view.ldap.LdapServerBackupFieldSet', {
           backupMirror: [true]
         }
       ]
-    /*{
-      xtype: 'checkbox',
-      name: 'backupMirrorEnabled',
-      fieldLabel: NX.I18n.get('ADMIN_LDAP_BACKUP_USE'),
-      inputValue: true,
-      listeners: {
-        change: function (checkbox, newValue) {
-          checkbox.up('panel').showOrHide('backupMirror', newValue);
-        }
-      }*/
     }
   ],
 
@@ -126,34 +116,6 @@ Ext.define('NX.coreui.view.ldap.LdapServerBackupFieldSet', {
     var me = this;
 
     me.callParent(arguments);
-
-    //me.showOrHide('backupMirror', false);
-  },
-
-  /**
-   * @private
-   * Show & enable or hide and disable components that have attributes that matches the specified value.
-   * @param attribute name of attribute
-   * @param value to be matched in order to show
-   */
-  showOrHide: function (attribute, value) {
-    var me = this,
-        form = me.up('form'),
-        components = me.query('component[' + attribute + ']');
-
-    Ext.iterate(components, function (component) {
-      if (value && component[attribute].indexOf(value) > -1) {
-        component.enable();
-        component.show();
-      }
-      else {
-        component.disable();
-        component.hide();
-      }
-    });
-    if (form) {
-      form.isValid();
-    }
   }
 
 });
