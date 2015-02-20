@@ -107,15 +107,6 @@ Ext.define('NX.coreui.view.ldap.LdapServerBackupFieldSet', {
         }
       ]
     }
-  ],
-
-  /**
-   * @override
-   */
-  initComponent: function () {
-    var me = this;
-
-    me.callParent(arguments);
-  }
+  ]
 
 });
