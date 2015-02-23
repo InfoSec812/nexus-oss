@@ -17,7 +17,7 @@
  *
  * @since 3.0
  */
-Ext.define('NX.coreui.controller.RoutingRepositorySettings', {
+Ext.define('NX.coreui_legacy.controller.RoutingRepositorySettings', {
   extend: 'Ext.app.Controller',
   requires: [
     'NX.Messages',

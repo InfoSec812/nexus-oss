@@ -17,7 +17,7 @@
  *
  * @since 3.0
  */
-Ext.define('NX.coreui.controller.HealthCheckRepositoryColumn', {
+Ext.define('NX.coreui_legacy.controller.HealthCheckRepositoryColumn', {
   extend: 'Ext.app.Controller',
   requires: [
     'Ext.grid.column.Column',

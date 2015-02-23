@@ -17,7 +17,7 @@
  *
  * @since 3.0
  */
-Ext.define('NX.coreui.controller.RepositoryRoutes', {
+Ext.define('NX.coreui_legacy.controller.RepositoryRoutes', {
   extend: 'NX.controller.Drilldown',
   requires: [
     'NX.Dialogs',

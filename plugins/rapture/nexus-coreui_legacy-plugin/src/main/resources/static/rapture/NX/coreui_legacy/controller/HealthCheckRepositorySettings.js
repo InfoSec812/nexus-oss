@@ -17,7 +17,7 @@
  *
  * @since 3.0
  */
-Ext.define('NX.coreui.controller.HealthCheckRepositorySettings', {
+Ext.define('NX.coreui_legacy.controller.HealthCheckRepositorySettings', {
   extend: 'Ext.app.Controller',
 
   stores: [

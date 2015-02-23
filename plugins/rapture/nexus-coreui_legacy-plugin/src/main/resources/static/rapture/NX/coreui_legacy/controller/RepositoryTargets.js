@@ -17,7 +17,7 @@
  *
  * @since 3.0
  */
-Ext.define('NX.coreui.controller.RepositoryTargets', {
+Ext.define('NX.coreui_legacy.controller.RepositoryTargets', {
   extend: 'NX.controller.Drilldown',
   requires: [
     'NX.Dialogs',
