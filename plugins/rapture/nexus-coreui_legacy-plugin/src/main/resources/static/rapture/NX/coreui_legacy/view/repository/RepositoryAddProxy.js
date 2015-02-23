@@ -31,10 +31,10 @@ Ext.define('NX.coreui_legacy.view.repository.RepositoryAddProxy', {
       xtype: 'nx-repository-settings-proxy-form',
       template: me.template,
       api: {
-        submit: 'NX.direct.coreui_Repository.createProxy'
+        submit: 'NX.direct.coreui_legacy_Repository.createProxy'
       },
       settingsFormSuccessMessage: function(data) {
-        return NX.I18n.get('ADMIN_REPOSITORIES_CREATE_PROXY_SUCCESS') + data['id'];
+        return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_CREATE_PROXY_SUCCESS') + data['id'];
       }
     };
 

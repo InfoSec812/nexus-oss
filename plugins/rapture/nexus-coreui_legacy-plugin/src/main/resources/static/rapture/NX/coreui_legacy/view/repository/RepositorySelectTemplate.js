@@ -34,8 +34,8 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySelectTemplate', {
         return 'repository-default';
       }
     },
-    { header: NX.I18n.get('ADMIN_REPOSITORIES_SELECT_PROVIDER_COLUMN'), dataIndex: 'providerName', flex: 2 },
-    { header: NX.I18n.get('ADMIN_REPOSITORIES_SELECT_TYPE_COLUMN'), dataIndex: 'type', flex: 1 }
+    { header: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SELECT_PROVIDER_COLUMN'), dataIndex: 'providerName', flex: 2 },
+    { header: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SELECT_TYPE_COLUMN'), dataIndex: 'type', flex: 1 }
   ]
 
 });

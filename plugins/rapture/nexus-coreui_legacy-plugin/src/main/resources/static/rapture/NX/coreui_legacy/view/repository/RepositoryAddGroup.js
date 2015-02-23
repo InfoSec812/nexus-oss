@@ -31,10 +31,10 @@ Ext.define('NX.coreui_legacy.view.repository.RepositoryAddGroup', {
       xtype: 'nx-repository-settings-group-form',
       template: me.template,
       api: {
-        submit: 'NX.direct.coreui_Repository.createGroup'
+        submit: 'NX.direct.coreui_legacy_Repository.createGroup'
       },
       settingsFormSuccessMessage: function(data) {
-        return NX.I18n.get('ADMIN_REPOSITORIES_CREATE_GROUP_SUCCESS') + data['id'];
+        return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_CREATE_GROUP_SUCCESS') + data['id'];
       }
     };
 

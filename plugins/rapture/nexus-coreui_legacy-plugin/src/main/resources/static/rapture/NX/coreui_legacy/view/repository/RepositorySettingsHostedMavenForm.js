@@ -28,7 +28,7 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsHostedMavenForm',
   ],
 
   api: {
-    submit: 'NX.direct.coreui_Repository.updateHostedMaven'
+    submit: 'NX.direct.coreui_legacy_Repository.updateHostedMaven'
   },
   settingsFormSuccessMessage: function(data) {
     return 'Repository updated: ' + data['id'];
@@ -45,50 +45,50 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsHostedMavenForm',
         xtype: 'combo',
         name: 'repositoryPolicy',
         itemId: 'repositoryPolicy',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_POLICY'),
-        helpText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_POLICY_HELP'),
-        emptyText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_POLICY_PLACEHOLDER'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_POLICY'),
+        helpText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_POLICY_HELP'),
+        emptyText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_POLICY_PLACEHOLDER'),
         editable: false,
         store: [
-          ['RELEASE', NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_POLICY_RELEASE_ITEM')],
-          ['SNAPSHOT', NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_POLICY_SNAPSHOTS_ITEM')]
+          ['RELEASE', NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_POLICY_RELEASE_ITEM')],
+          ['SNAPSHOT', NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_POLICY_SNAPSHOTS_ITEM')]
         ],
         queryMode: 'local',
         readOnly: true,
         allowBlank: true,
         submitValue: false
       },
-      { xtype: 'nx-coreui-repository-settings-localstorage' },
+      { xtype: 'nx-coreui_legacy-repository-settings-localstorage' },
       {
         xtype: 'combo',
         name: 'writePolicy',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT'),
-        helpText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT_HELP'),
-        emptyText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT_PLACEHOLDER'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT'),
+        helpText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT_HELP'),
+        emptyText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT_PLACEHOLDER'),
         editable: false,
         store: [
-          ['ALLOW_WRITE', NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT_ALLOW_ITEM')],
-          ['ALLOW_WRITE_ONCE', NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT_DISABLE_ITEM')],
-          ['READ_ONLY', NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT_RO_ITEM')]
+          ['ALLOW_WRITE', NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT_ALLOW_ITEM')],
+          ['ALLOW_WRITE_ONCE', NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT_DISABLE_ITEM')],
+          ['READ_ONLY', NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT_RO_ITEM')]
         ],
         queryMode: 'local'
       },
       {
         xtype: 'checkbox',
         name: 'browseable',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_BROWSING'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_BROWSING'),
         value: true
       },
       {
         xtype: 'checkbox',
         name: 'indexable',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_SEARCH'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_SEARCH'),
         value: true
       },
       {
         xtype: 'checkbox',
         name: 'exposed',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_PUBLISH'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_PUBLISH'),
         value: true
       }
     ];

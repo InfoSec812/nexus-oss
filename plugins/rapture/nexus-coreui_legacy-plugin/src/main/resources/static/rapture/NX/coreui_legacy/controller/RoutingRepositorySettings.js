@@ -29,9 +29,9 @@ Ext.define('NX.coreui_legacy.controller.RoutingRepositorySettings', {
     'routing.RoutingProxyRepositorySettings'
   ],
   refs: [
-    { ref: 'feature', selector: 'nx-coreui-repository-feature' },
-    { ref: 'hostedPanel', selector: 'nx-coreui-routing-hosted-repository-settings' },
-    { ref: 'proxyPanel', selector: 'nx-coreui-routing-proxy-repository-settings' }
+    { ref: 'feature', selector: 'nx-coreui_legacy-repository-feature' },
+    { ref: 'hostedPanel', selector: 'nx-coreui_legacy-routing-hosted-repository-settings' },
+    { ref: 'proxyPanel', selector: 'nx-coreui_legacy-routing-proxy-repository-settings' }
   ],
 
   /**
@@ -42,21 +42,21 @@ Ext.define('NX.coreui_legacy.controller.RoutingRepositorySettings', {
 
     me.listen({
       component: {
-        'nx-coreui-repository-list': {
+        'nx-coreui_legacy-repository-list': {
           selection: me.onSelection
         },
-        'nx-coreui-routing-hosted-repository-settings': {
+        'nx-coreui_legacy-routing-hosted-repository-settings': {
           activate: me.onActivate,
           deactivate: me.onDeactivate
         },
-        'nx-coreui-routing-proxy-repository-settings': {
+        'nx-coreui_legacy-routing-proxy-repository-settings': {
           activate: me.onActivate,
           deactivate: me.onDeactivate
         },
-        'nx-coreui-routing-proxy-repository-settings #discoveryEnabled': {
+        'nx-coreui_legacy-routing-proxy-repository-settings #discoveryEnabled': {
           change: me.onDiscoveryEnabledChange
         },
-        'nx-coreui-routing-proxy-repository-settings button[action=update]': {
+        'nx-coreui_legacy-routing-proxy-repository-settings button[action=update]': {
           click: me.updateNow
         }
       }
@@ -85,8 +85,8 @@ Ext.define('NX.coreui_legacy.controller.RoutingRepositorySettings', {
   /**
    * @private
    * Add "Routing" panel to repository tabs, if not already present and/or load routing settings into the panel.
-   * @param {NX.coreui.view.repository.RepositoryList} grid repository grid
-   * @param {NX.coreui.model.Repository} model selected repository
+   * @param {NX.coreui_legacy.view.repository.RepositoryList} grid repository grid
+   * @param {NX.coreui_legacy.model.Repository} model selected repository
    */
   onSelection: function(grid, model) {
     var me = this,
@@ -97,8 +97,8 @@ Ext.define('NX.coreui_legacy.controller.RoutingRepositorySettings', {
         (model.get('format') === 'maven2' && (model.get('type') === 'hosted') || model.get('type') === 'group')) {
       if (!hostedPanel) {
         me.getFeature().addTab({
-          xtype: 'nx-coreui-routing-hosted-repository-settings',
-          title: NX.I18n.get('ADMIN_REPOSITORIES_DETAILS_ROUTING_TAB')
+          xtype: 'nx-coreui_legacy-routing-hosted-repository-settings',
+          title: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_DETAILS_ROUTING_TAB')
         });
         hostedPanel = me.getHostedPanel();
       }
@@ -114,8 +114,8 @@ Ext.define('NX.coreui_legacy.controller.RoutingRepositorySettings', {
     if (model && (model.get('format') === 'maven2' && model.get('type') === 'proxy')) {
       if (!proxyPanel) {
         me.getFeature().addTab({
-          xtype: 'nx-coreui-routing-proxy-repository-settings',
-          title: NX.I18n.get('ADMIN_REPOSITORIES_DETAILS_ROUTING_TAB')
+          xtype: 'nx-coreui_legacy-routing-proxy-repository-settings',
+          title: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_DETAILS_ROUTING_TAB')
         });
         proxyPanel = me.getProxyPanel();
       }
@@ -166,7 +166,7 @@ Ext.define('NX.coreui_legacy.controller.RoutingRepositorySettings', {
     var me = this,
         panel = me.getProxyPanel();
 
-    NX.direct.coreui_RoutingRepositorySettings.updatePrefixFile(panel.getRepository().getId(), function(response) {
+    NX.direct.coreui_legacy_RoutingRepositorySettings.updatePrefixFile(panel.getRepository().getId(), function(response) {
       if (Ext.isObject(response) && response.success) {
         NX.Messages.add({
           text: NX.I18n.format('ADMIN_REPOSITORIES_ROUTING_DISCOVERY_SUCCESS', panel.getRepository().get('name')), type: 'success'

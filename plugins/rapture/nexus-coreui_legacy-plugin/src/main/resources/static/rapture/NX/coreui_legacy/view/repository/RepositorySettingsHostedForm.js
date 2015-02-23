@@ -25,41 +25,41 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsHostedForm', {
   ],
 
   api: {
-    submit: 'NX.direct.coreui_Repository.updateHosted'
+    submit: 'NX.direct.coreui_legacy_Repository.updateHosted'
   },
   settingsFormSuccessMessage: function(data) {
-    return NX.I18n.get('ADMIN_REPOSITORIES_UPDATE_SUCCESS') + data['id'];
+    return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_UPDATE_SUCCESS') + data['id'];
   },
 
   initComponent: function() {
     var me = this;
 
     me.items = [
-      { xtype: 'nx-coreui-repository-settings-localstorage' },
+      { xtype: 'nx-coreui_legacy-repository-settings-localstorage' },
       {
         xtype: 'combo',
         name: 'writePolicy',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT'),
-        helpText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT_HELP'),
-        emptyText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT_PLACEHOLDER'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT'),
+        helpText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT_HELP'),
+        emptyText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT_PLACEHOLDER'),
         editable: false,
         store: [
-          ['ALLOW_WRITE', NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT_ALLOW_ITEM')],
-          ['ALLOW_WRITE_ONCE', NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT_DISABLE_ITEM')],
-          ['READ_ONLY', NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT_RO_ITEM')]
+          ['ALLOW_WRITE', NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT_ALLOW_ITEM')],
+          ['ALLOW_WRITE_ONCE', NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT_DISABLE_ITEM')],
+          ['READ_ONLY', NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT_RO_ITEM')]
         ],
         queryMode: 'local'
       },
       {
         xtype: 'checkbox',
         name: 'browseable',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_BROWSING'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_BROWSING'),
         value: true
       },
       {
         xtype: 'checkbox',
         name: 'exposed',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_PUBLISH'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_PUBLISH'),
         value: true
       }
     ];

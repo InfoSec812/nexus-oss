@@ -32,16 +32,16 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsLocalStorage', {
   items: [
     {
       name: 'defaultLocalStorageUrl',
-      fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_LOCAL'),
-      helpText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_LOCAL_HELP'),
+      fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_LOCAL'),
+      helpText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_LOCAL_HELP'),
       readOnly: true,
       submitValue: false
     },
     {
       name: 'overrideLocalStorageUrl',
-      fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_OVERRIDE'),
-      helpText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_OVERRIDE_HELP'),
-      emptyText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_OVERRIDE_PLACEHOLDER')
+      fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_OVERRIDE'),
+      helpText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_OVERRIDE_HELP'),
+      emptyText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_OVERRIDE_PLACEHOLDER')
     }
   ]
 

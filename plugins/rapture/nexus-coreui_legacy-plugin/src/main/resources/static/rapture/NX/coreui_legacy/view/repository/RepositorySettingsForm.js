@@ -29,7 +29,7 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsForm', {
    * @cfg template repository template object
    */
 
-  editableMarker: NX.I18n.get('ADMIN_REPOSITORIES_UPDATE_ERROR'),
+  editableMarker: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_UPDATE_ERROR'),
 
   initComponent: function() {
     var me = this;
@@ -39,7 +39,7 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsForm', {
     me.items = me.items || [];
     Ext.Array.insert(me.items, 0, [
       {
-        xtype: 'nx-coreui-repository-settings-common'
+        xtype: 'nx-coreui_legacy-repository-settings-common'
       }
     ]);
 

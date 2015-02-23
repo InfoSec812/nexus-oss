@@ -31,10 +31,10 @@ Ext.define('NX.coreui_legacy.view.repository.RepositoryAddHostedMaven', {
       xtype: 'nx-repository-settings-hosted-maven2-form',
       template: me.template,
       api: {
-        submit: 'NX.direct.coreui_Repository.createHostedMaven'
+        submit: 'NX.direct.coreui_legacy_Repository.createHostedMaven'
       },
       settingsFormSuccessMessage: function(data) {
-        return NX.I18n.get('ADMIN_REPOSITORIES_CREATE_MAVEN_SUCCESS') + data['id'];
+        return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_CREATE_MAVEN_SUCCESS') + data['id'];
       }
     };
 

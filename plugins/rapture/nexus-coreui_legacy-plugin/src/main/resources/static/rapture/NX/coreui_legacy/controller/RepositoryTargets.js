@@ -26,7 +26,7 @@ Ext.define('NX.coreui_legacy.controller.RepositoryTargets', {
     'NX.I18n'
   ],
 
-  masters: 'nx-coreui-repositorytarget-list',
+  masters: 'nx-coreui_legacy-repositorytarget-list',
 
   models: [
     'RepositoryTarget'
@@ -43,8 +43,8 @@ Ext.define('NX.coreui_legacy.controller.RepositoryTargets', {
     'repositorytarget.RepositoryTargetSettingsForm'
   ],
   refs: [
-    { ref: 'feature', selector: 'nx-coreui-repositorytarget-feature' },
-    { ref: 'list', selector: 'nx-coreui-repositorytarget-list' },
+    { ref: 'feature', selector: 'nx-coreui_legacy-repositorytarget-feature' },
+    { ref: 'list', selector: 'nx-coreui_legacy-repositorytarget-list' },
     { ref: 'settings', selector: 'nx-coreui_legacy-repositorytarget-feature nx-coreui_legacy-repositorytarget-settings' }
   ],
   icons: {
@@ -56,9 +56,9 @@ Ext.define('NX.coreui_legacy.controller.RepositoryTargets', {
   features: {
     mode: 'admin',
     path: '/Repository/Targets',
-    text: NX.I18n.get('ADMIN_TARGETS_TITLE'),
-    description: NX.I18n.get('ADMIN_TARGETS_SUBTITLE'),
-    view: { xtype: 'nx-coreui-repositorytarget-feature' },
+    text: NX.I18n.get('LEGACY_ADMIN_TARGETS_TITLE'),
+    description: NX.I18n.get('LEGACY_ADMIN_TARGETS_SUBTITLE'),
+    view: { xtype: 'nx-coreui_legacy-repositorytarget-feature' },
     iconConfig: {
       file: 'target.png',
       variants: ['x16', 'x32']
@@ -89,13 +89,13 @@ Ext.define('NX.coreui_legacy.controller.RepositoryTargets', {
         }
       },
       component: {
-        'nx-coreui-repositorytarget-list': {
+        'nx-coreui_legacy-repositorytarget-list': {
           beforerender: me.loadRepositoryFormat
         },
-        'nx-coreui-repositorytarget-list button[action=new]': {
+        'nx-coreui_legacy-repositorytarget-list button[action=new]': {
           click: me.showAddWindow
         },
-        'nx-coreui-repositorytarget-settings-form': {
+        'nx-coreui_legacy-repositorytarget-settings-form': {
           submitted: me.onSettingsSubmitted
         }
       }
@@ -128,7 +128,7 @@ Ext.define('NX.coreui_legacy.controller.RepositoryTargets', {
       feature = me.getFeature();
 
     // Show the first panel in the create wizard, and set the breadcrumb
-    feature.setItemName(1, NX.I18n.get('ADMIN_TARGETS_CREATE_TITLE'));
+    feature.setItemName(1, NX.I18n.get('LEGACY_ADMIN_TARGETS_CREATE_TITLE'));
     me.loadCreateWizard(1, true, Ext.create('widget.nx-coreui_legacy-repositorytarget-add'));
   },
 
@@ -150,7 +150,7 @@ Ext.define('NX.coreui_legacy.controller.RepositoryTargets', {
    */
   onSettingsSubmitted: function(form, action) {
     var me = this,
-        win = form.up('nx-coreui-repositorytarget-add');
+        win = form.up('nx-coreui_legacy-repositorytarget-add');
 
     if (win) {
       me.loadStoreAndSelect(action.result.data.id, false);
@@ -163,13 +163,13 @@ Ext.define('NX.coreui_legacy.controller.RepositoryTargets', {
    * @private
    * @override
    * Deletes a repository target.
-   * @param {NX.coreui.model.RepositoryTarget} model repository target to be deleted
+   * @param {NX.coreui_legacy.model.RepositoryTarget} model repository target to be deleted
    */
   deleteModel: function(model) {
     var me = this,
         description = me.getDescription(model);
 
-    NX.direct.coreui_RepositoryTarget.remove(model.getId(), function(response) {
+    NX.direct.coreui_legacy_RepositoryTarget.remove(model.getId(), function(response) {
       me.loadStore();
       if (Ext.isObject(response) && response.success) {
         NX.Messages.add({ text: NX.I18n.format('ADMIN_TARGETS_DETAILS_DELETE_SUCCESS', description), type: 'success' });

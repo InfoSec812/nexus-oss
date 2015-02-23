@@ -37,14 +37,14 @@ Ext.define('NX.coreui_legacy.view.routing.RoutingHostedRepositorySettings', {
       api: {
         load: 'NX.direct.coreui_legacy_RoutingRepositorySettings.read'
       },
-      settingsFormSuccessMessage: NX.I18n.get('ADMIN_REPOSITORIES_ROUTING_UPDATE_SUCCESS'),
+      settingsFormSuccessMessage: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_ROUTING_UPDATE_SUCCESS'),
       buttons: undefined,
       hidden: true
     },
     {
       xtype: 'form',
       itemId: 'publishStatusForm',
-      title: NX.I18n.get('ADMIN_REPOSITORIES_ROUTING_PUBLISH_SECTION'),
+      title: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_ROUTING_PUBLISH_SECTION'),
       hidden: true,
       ui: 'nx-subsection',
       cls: 'no-border',
@@ -67,7 +67,7 @@ Ext.define('NX.coreui_legacy.view.routing.RoutingHostedRepositorySettings', {
         {
           xtype: 'nx-datedisplayfield',
           name: 'publishTimestamp',
-          fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_ROUTING_PUBLISHED'),
+          fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_ROUTING_PUBLISHED'),
           hideIfUndefined: true,
           hidden: true
         },
@@ -114,7 +114,7 @@ Ext.define('NX.coreui_legacy.view.routing.RoutingHostedRepositorySettings', {
 
         if (values && values.publishStatus) {
           if (values.publishUrl) {
-            values.publishUrl = NX.util.Url.asLink(values.publishUrl, NX.I18n.get('ADMIN_REPOSITORIES_ROUTING_PREFIX_LINK'));
+            values.publishUrl = NX.util.Url.asLink(values.publishUrl, NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_ROUTING_PREFIX_LINK'));
           }
           publishStatusForm.getForm().setValues(values);
           publishStatusForm.show();

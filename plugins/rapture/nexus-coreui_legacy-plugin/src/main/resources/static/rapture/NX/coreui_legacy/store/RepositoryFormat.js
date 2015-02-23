@@ -13,32 +13,30 @@
 /*global Ext, NX*/
 
 /**
- * Add hosted repository window.
+ * Repository format store.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.repository.RepositoryAddHosted', {
-  extend: 'NX.coreui_legacy.view.repository.RepositoryAdd',
-  alias: 'widget.nx-repository-add-hosted',
-  requires: [
-    'NX.I18n'
-  ],
+Ext.define('NX.coreui_legacy.store.RepositoryFormat', {
+  extend: 'Ext.data.Store',
+  model: 'NX.coreui_legacy.model.RepositoryFormat',
 
-  initComponent: function() {
-    var me = this;
+  proxy: {
+    type: 'direct',
+    paramsAsHash: false,
 
-    me.items = {
-      xtype: 'nx-repository-settings-hosted-form',
-      template: me.template,
-      api: {
-        submit: 'NX.direct.coreui_legacy_Repository.createHosted'
-      },
-      settingsFormSuccessMessage: function(data) {
-        return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_CREATE_HOSTED_SUCCESS') + data['id'];
-      }
-    };
+    api: {
+      read: 'NX.direct.coreui_legacy_Repository.readFormats'
+    },
 
-    me.callParent(arguments);
-  }
+    reader: {
+      type: 'json',
+      root: 'data',
+      idProperty: 'id',
+      successProperty: 'success'
+    }
+  },
 
+  sortOnLoad: true,
+  sorters: { property: 'name', direction: 'ASC' }
 });

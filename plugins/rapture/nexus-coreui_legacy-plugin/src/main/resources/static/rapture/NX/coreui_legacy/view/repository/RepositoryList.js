@@ -42,15 +42,15 @@ Ext.define('NX.coreui_legacy.view.repository.RepositoryList', {
             return 'repository-default';
           }
         },
-        { header: NX.I18n.get('ADMIN_REPOSITORIES_LIST_NAME_COLUMN'), dataIndex: 'name', flex: 2 },
-        { header: NX.I18n.get('ADMIN_REPOSITORIES_LIST_TYPE_COLUMN'), dataIndex: 'type',
+        { header: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_NAME_COLUMN'), dataIndex: 'name', flex: 2 },
+        { header: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_TYPE_COLUMN'), dataIndex: 'type',
           renderer: function(value) {
             return Ext.String.capitalize(value);
           }
         },
-        { header: NX.I18n.get('ADMIN_REPOSITORIES_LIST_FORMAT_COLUMN'), dataIndex: 'formatName' },
-        { header: NX.I18n.get('ADMIN_REPOSITORIES_LIST_STATUS_COLUMN'), renderer: me.renderStatus, flex: 1 },
-        { header: NX.I18n.get('ADMIN_REPOSITORIES_LIST_URL_COLUMN'), dataIndex: 'url', xtype: 'nx-linkcolumn', flex: 2 }
+        { header: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_FORMAT_COLUMN'), dataIndex: 'formatName' },
+        { header: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_STATUS_COLUMN'), renderer: me.renderStatus, flex: 1 },
+        { header: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_URL_COLUMN'), dataIndex: 'url', xtype: 'nx-linkcolumn', flex: 2 }
       ],
       defaults: {
         tdCls: 'nx-middle-align'
@@ -66,15 +66,15 @@ Ext.define('NX.coreui_legacy.view.repository.RepositoryList', {
   },
 
   tbar: [
-    { xtype: 'button', text: NX.I18n.get('ADMIN_REPOSITORIES_LIST_NEW_BUTTON'), glyph: 'xf055@FontAwesome' /* fa-plus-circle */, action: 'new', disabled: true }
+    { xtype: 'button', text: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_NEW_BUTTON'), glyph: 'xf055@FontAwesome' /* fa-plus-circle */, action: 'new', disabled: true }
   ],
 
   plugins: [
-    { ptype: 'gridfilterbox', emptyText: NX.I18n.get('ADMIN_REPOSITORIES_LIST_FILTER_ERROR') }
+    { ptype: 'gridfilterbox', emptyText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_FILTER_ERROR') }
   ],
 
   renderStatus: function(value, metaData, model) {
-    var status = (model.get('localStatus') === 'IN_SERVICE') ? NX.I18n.get('ADMIN_REPOSITORIES_LIST_IN_SERVICE') : NX.I18n.get('ADMIN_REPOSITORIES_LIST_OUT_SERVICE'),
+    var status = (model.get('localStatus') === 'IN_SERVICE') ? NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_IN_SERVICE') : NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_OUT_SERVICE'),
         available = model.get('remoteStatus') === 'AVAILABLE',
         unknown = model.get('remoteStatus') === 'UNKNOWN',
         reason = model.get('remoteReason');
@@ -86,7 +86,7 @@ Ext.define('NX.coreui_legacy.view.repository.RepositoryList', {
     if (model.get('type') === 'proxy') {
       if (model.get('proxyMode').search(/BLOCKED/) === 0) {
         status += model.get('proxyMode') ===
-            'BLOCKED_AUTO' ? NX.I18n.get('ADMIN_REPOSITORIES_LIST_AUTO_BLOCK') : NX.I18n.get('ADMIN_REPOSITORIES_LIST_MANUAL_BLOCK');
+            'BLOCKED_AUTO' ? NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_AUTO_BLOCK') : NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_MANUAL_BLOCK');
         if (available) {
           status += ' and Available';
         }
@@ -97,11 +97,11 @@ Ext.define('NX.coreui_legacy.view.repository.RepositoryList', {
       else { // allow
         if (model.get('localStatus') === 'IN_SERVICE') {
           if (!available && unknown) {
-            status += unknown ? NX.I18n.get('ADMIN_REPOSITORIES_LIST_CHECK_REMOTE') : NX.I18n.get('ADMIN_REPOSITORIES_LIST_PROXY');
+            status += unknown ? NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_CHECK_REMOTE') : NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_PROXY');
           }
         }
         else { // Out of service
-          status += available ? NX.I18n.get('ADMIN_REPOSITORIES_LIST_REMOTE_AVAILABLE') : NX.I18n.get('ADMIN_REPOSITORIES_LIST_REMOTE_UNAVAILABLE');
+          status += available ? NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_REMOTE_AVAILABLE') : NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_REMOTE_UNAVAILABLE');
         }
       }
     }

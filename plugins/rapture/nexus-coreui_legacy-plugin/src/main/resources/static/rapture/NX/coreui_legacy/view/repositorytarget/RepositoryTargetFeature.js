@@ -31,6 +31,6 @@ Ext.define('NX.coreui_legacy.view.repositorytarget.RepositoryTargetFeature', {
   tabs: { xtype: 'nx-coreui_legacy-repositorytarget-settings' },
 
   actions: [
-    { xtype: 'button', text: NX.I18n.get('ADMIN_TARGETS_DETAILS_DELETE_BUTTON'), glyph: 'xf056@FontAwesome' /* fa-minus-circle */, action: 'delete', disabled: true }
+    { xtype: 'button', text: NX.I18n.get('LEGACY_ADMIN_TARGETS_DETAILS_DELETE_BUTTON'), glyph: 'xf056@FontAwesome' /* fa-minus-circle */, action: 'delete', disabled: true }
   ]
 });

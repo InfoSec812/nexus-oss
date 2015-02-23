@@ -31,10 +31,10 @@ Ext.define('NX.coreui_legacy.view.repository.RepositoryAddProxyMaven', {
       xtype: 'nx-repository-settings-proxy-maven2-form',
       template: me.template,
       api: {
-        submit: 'NX.direct.coreui_Repository.createProxyMaven'
+        submit: 'NX.direct.coreui_legacy_Repository.createProxyMaven'
       },
       settingsFormSuccessMessage: function(data) {
-        return NX.I18n.get('ADMIN_REPOSITORIES_CREATE_MAVEN_PROXY_SUCCESS') + data['id'];
+        return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_CREATE_MAVEN_PROXY_SUCCESS') + data['id'];
       }
     };
 

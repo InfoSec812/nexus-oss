@@ -26,18 +26,18 @@ Ext.define('NX.coreui_legacy.view.repository.RepositoryFeature', {
 
   iconName: 'repository-default',
 
-  masters: { xtype: 'nx-coreui-repository-list' },
+  masters: { xtype: 'nx-coreui_legacy-repository-list' },
 
   tabs: [
-    { xtype: 'nx-coreui-repository-settings', title: NX.I18n.get('ADMIN_REPOSITORIES_DETAILS_SETTINGS_TAB'), weight: 10 }
+    { xtype: 'nx-coreui_legacy-repository-settings', title: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_DETAILS_SETTINGS_TAB'), weight: 10 }
   ],
 
   actions: [
-    { xtype: 'button', text: NX.I18n.get('ADMIN_REPOSITORIES_DETAILS_DELETE_BUTTON'), glyph: 'xf056@FontAwesome' /* fa-minus-circle */, action: 'delete', disabled: true },
-    { xtype: 'button', text: NX.I18n.get('ADMIN_REPOSITORIES_DETAILS_MORE_BUTTON'), glyph: 'xf0ae@FontAwesome' /* fa-tasks */, action: 'more',
+    { xtype: 'button', text: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_DETAILS_DELETE_BUTTON'), glyph: 'xf056@FontAwesome' /* fa-minus-circle */, action: 'delete', disabled: true },
+    { xtype: 'button', text: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_DETAILS_MORE_BUTTON'), glyph: 'xf0ae@FontAwesome' /* fa-tasks */, action: 'more',
       menu: []
     },
     '-',
-    { xtype: 'button', text: NX.I18n.get('ADMIN_REPOSITORIES_DETAILS_BROWSE_BUTTON'), glyph: 'xf0e8@FontAwesome' /* fa-sitemap */, action: 'browse' }
+    { xtype: 'button', text: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_DETAILS_BROWSE_BUTTON'), glyph: 'xf0e8@FontAwesome' /* fa-sitemap */, action: 'browse' }
   ]
 });

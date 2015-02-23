@@ -27,54 +27,54 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsProxyForm', {
   ],
 
   api: {
-    submit: 'NX.direct.coreui_Repository.updateProxy'
+    submit: 'NX.direct.coreui_legacy_Repository.updateProxy'
   },
   settingsFormSuccessMessage: function(data) {
-    return NX.I18n.get('ADMIN_REPOSITORIES_UPDATE_SUCCESS') + data['id'];
+    return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_UPDATE_SUCCESS') + data['id'];
   },
 
   initComponent: function() {
     var me = this;
 
     me.items = [
-      { xtype: 'nx-coreui-repository-settings-localstorage' },
+      { xtype: 'nx-coreui_legacy-repository-settings-localstorage' },
       {
         xtype: 'nx-url',
         name: 'remoteStorageUrl',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_REMOTE'),
-        helpText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_REMOTE_HELP'),
-        emptyText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_REMOTE_PLACEHOLDER')
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_REMOTE'),
+        helpText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_REMOTE_HELP'),
+        emptyText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_REMOTE_PLACEHOLDER')
       },
       {
         xtype: 'checkbox',
         name: 'autoBlockActive',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_BLOCKING'),
-        helpText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_BLOCKING_HELP'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_BLOCKING'),
+        helpText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_BLOCKING_HELP'),
         value: true
       },
       {
         xtype: 'checkbox',
         name: 'fileTypeValidation',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_FILE'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_FILE'),
         value: true
       },
       {
         xtype: 'checkbox',
         name: 'browseable',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_BROWSING'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_BROWSING'),
         value: true
       },
       {
         xtype: 'checkbox',
         name: 'exposed',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_PUBLISH'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_PUBLISH'),
         value: true
       },
       {
         xtype: 'numberfield',
         name: 'notFoundCacheTTL',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_TTL'),
-        helpText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_TTL_HELP'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_TTL'),
+        helpText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_TTL_HELP'),
         minValue: -1,
         maxValue: 511000,
         allowDecimals: false,
@@ -84,8 +84,8 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsProxyForm', {
       {
         xtype: 'numberfield',
         name: 'itemMaxAge',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_ITEM_AGE'),
-        helpText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_ITEM_AGE_HELP'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_ITEM_AGE'),
+        helpText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_ITEM_AGE_HELP'),
         minValue: -1,
         maxValue: 511000,
         allowDecimals: false,
@@ -94,7 +94,7 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsProxyForm', {
       },
       {
         xtype: 'nx-optionalfieldset',
-        title: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_AUTHENTICATION'),
+        title: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_AUTHENTICATION'),
         checkboxToggle: true,
         checkboxName: 'authEnabled',
         collapsed: true,
@@ -104,7 +104,7 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsProxyForm', {
       },
       {
         xtype: 'nx-optionalfieldset',
-        title: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_HTTP'),
+        title: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_HTTP'),
         checkboxToggle: true,
         checkboxName: 'httpRequestSettings',
         collapsed: true,

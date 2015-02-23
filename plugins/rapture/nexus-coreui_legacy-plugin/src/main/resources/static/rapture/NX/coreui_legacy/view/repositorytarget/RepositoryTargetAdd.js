@@ -40,13 +40,13 @@ Ext.define('NX.coreui_legacy.view.repositorytarget.RepositoryTargetAdd', {
         submit: 'NX.direct.coreui_legacy_RepositoryTarget.create'
       },
       settingsFormSuccessMessage: function(data) {
-        return NX.I18n.get('ADMIN_TARGETS_CREATE_SUCCESS') + data['name'];
+        return NX.I18n.get('LEGACY_ADMIN_TARGETS_CREATE_SUCCESS') + data['name'];
       },
       editableCondition: NX.Conditions.isPermitted('nexus:targets', 'create'),
-      editableMarker: NX.I18n.get('ADMIN_TARGETS_CREATE_ERROR'),
+      editableMarker: NX.I18n.get('LEGACY_ADMIN_TARGETS_CREATE_ERROR'),
 
       buttons: [
-        { text: NX.I18n.get('ADMIN_TARGETS_LIST_NEW_BUTTON'), action: 'add', formBind: true, ui: 'nx-primary' },
+        { text: NX.I18n.get('LEGACY_ADMIN_TARGETS_LIST_NEW_BUTTON'), action: 'add', formBind: true, ui: 'nx-primary' },
         { text: NX.I18n.get('GLOBAL_DIALOG_ADD_CANCEL_BUTTON'), handler: function () {
           this.up('nx-drilldown').showChild(0, true);
         }}

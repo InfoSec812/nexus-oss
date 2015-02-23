@@ -16,7 +16,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
-import org.sonatype.nexus.coreui_legacy.CoreUiPlugin;
+import org.sonatype.nexus.coreui_legacy.CoreUiLegacyPlugin;
 import org.sonatype.nexus.rapture.UiPluginDescriptor;
 import org.sonatype.nexus.rapture.UiPluginDescriptorSupport;
 
@@ -34,7 +34,7 @@ public class UiPluginDescriptorImpl
   extends UiPluginDescriptorSupport
 {
   @Inject
-  public UiPluginDescriptorImpl(final CoreUiPlugin owner) {
+  public UiPluginDescriptorImpl(final CoreUiLegacyPlugin owner) {
     super(owner);
     setNamespace("NX.coreui_legacy");
     setConfigClassName("NX.coreui_legacy.app.PluginConfig");

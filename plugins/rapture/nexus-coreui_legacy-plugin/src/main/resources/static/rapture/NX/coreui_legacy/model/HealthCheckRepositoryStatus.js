@@ -13,32 +13,23 @@
 /*global Ext, NX*/
 
 /**
- * Add hosted repository window.
+ * Health Check repository status model.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.repository.RepositoryAddHosted', {
-  extend: 'NX.coreui_legacy.view.repository.RepositoryAdd',
-  alias: 'widget.nx-repository-add-hosted',
-  requires: [
-    'NX.I18n'
-  ],
-
-  initComponent: function() {
-    var me = this;
-
-    me.items = {
-      xtype: 'nx-repository-settings-hosted-form',
-      template: me.template,
-      api: {
-        submit: 'NX.direct.coreui_legacy_Repository.createHosted'
-      },
-      settingsFormSuccessMessage: function(data) {
-        return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_CREATE_HOSTED_SUCCESS') + data['id'];
-      }
-    };
-
-    me.callParent(arguments);
-  }
-
+Ext.define('NX.coreui_legacy.model.HealthCheckRepositoryStatus', {
+  extend: 'Ext.data.Model',
+  fields: [
+    'repositoryId',
+    'enabled',
+    'eulaAccepted',
+    'analyzing',
+    'detailedReportSupported',
+    'iframeHeight',
+    'iframeWidth',
+    'securityIssueCount',
+    'licenseIssueCount',
+    'summaryUrl',
+    'detailUrl'
+  ]
 });

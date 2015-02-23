@@ -38,8 +38,8 @@ Ext.define('NX.coreui_legacy.controller.HealthCheckRepositoryColumn', {
     'healthcheck.HealthCheckSummary'
   ],
   refs: [
-    { ref: 'list', selector: 'nx-coreui-repository-list' },
-    { ref: 'summary', selector: 'nx-coreui-healthcheck-summary' }
+    { ref: 'list', selector: 'nx-coreui_legacy-repository-list' },
+    { ref: 'summary', selector: 'nx-coreui_legacy-healthcheck-summary' }
   ],
 
   /**
@@ -63,7 +63,7 @@ Ext.define('NX.coreui_legacy.controller.HealthCheckRepositoryColumn', {
         }
       },
       component: {
-        'nx-coreui-repository-list': {
+        'nx-coreui_legacy-repository-list': {
           afterrender: me.bindHealthCheckColumn
         }
       }
@@ -86,7 +86,7 @@ Ext.define('NX.coreui_legacy.controller.HealthCheckRepositoryColumn', {
   /**
    * @private
    * Add/Remove Health Check column based on nexus:healthcheck:read permission.
-   * @param {NX.coreui.view.repository.RepositoryList} grid repository grid
+   * @param {NX.coreui_legacy.view.repository.RepositoryList} grid repository grid
    */
   bindHealthCheckColumn: function(grid) {
     var me = this;
@@ -105,7 +105,7 @@ Ext.define('NX.coreui_legacy.controller.HealthCheckRepositoryColumn', {
   /**
    * @private
    * Add Health Check column to repository grid.
-   * @param {NX.coreui.view.repository.RepositoryList} grid repository grid
+   * @param {NX.coreui_legacy.view.repository.RepositoryList} grid repository grid
    */
   addHealthCheckColumn: function(grid) {
     var me = this,
@@ -115,7 +115,7 @@ Ext.define('NX.coreui_legacy.controller.HealthCheckRepositoryColumn', {
     if (!column) {
       column = grid.healthCheckColumn = Ext.create('Ext.grid.column.Column', {
         id: 'healthCheckColumn',
-        header: NX.I18n.get('ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_COLUMN'),
+        header: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_COLUMN'),
         width: 120,
         renderer: Ext.bind(me.renderHealthCheckColumn, me),
         listeners: {
@@ -141,7 +141,7 @@ Ext.define('NX.coreui_legacy.controller.HealthCheckRepositoryColumn', {
   /**
    * @private
    * Remove Health Check column from repository grid.
-   * @param {NX.coreui.view.repository.RepositoryList} grid repository grid
+   * @param {NX.coreui_legacy.view.repository.RepositoryList} grid repository grid
    */
   removeHealthCheckColumn: function(grid) {
     var column = grid.healthCheckColumn;
@@ -158,7 +158,7 @@ Ext.define('NX.coreui_legacy.controller.HealthCheckRepositoryColumn', {
    * Render Health Check column based on corresponding {NX.coreui_legacy.model.HealthCheckRepositoryStatus}.
    * @param value (not used)
    * @param metadata Health Check column metadata
-   * @param {NX.coreui.model.Repository} repositoryModel repository model
+   * @param {NX.coreui_legacy.model.Repository} repositoryModel repository model
    * @returns {string} Health Check column content
    */
   renderHealthCheckColumn: function(value, metadata, repositoryModel) {
@@ -168,7 +168,7 @@ Ext.define('NX.coreui_legacy.controller.HealthCheckRepositoryColumn', {
     if (statusModel) {
       if (statusModel.get('enabled')) {
         if (statusModel.get('analyzing')) {
-          return NX.I18n.get('ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_ANALYZING');
+          return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_ANALYZING');
         }
         return '<div><img src="' + me.imageUrl('security-alert.png') + '">&nbsp;'
             + statusModel.get('securityIssueCount') + '&nbsp;&nbsp;<img src="' + me.imageUrl('license-alert.png')
@@ -176,18 +176,18 @@ Ext.define('NX.coreui_legacy.controller.HealthCheckRepositoryColumn', {
       }
       else if (NX.Permissions.check('nexus:healthcheck', 'update')) {
         var classes = "x-btn x-unselectable x-btn-nx-primary-small x-btn-nx-primary-toolbar-small-disabled";
-        var text = '<span class="x-btn-inner x-btn-inner-center" unselectable="on">' + NX.I18n.get('ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_ANALYZE') + '</span>';
+        var text = '<span class="x-btn-inner x-btn-inner-center" unselectable="on">' + NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_ANALYZE') + '</span>';
         var button = '<a class="' + classes + '" hidefocus="on" unselectable="on">' + text + '</a>';
         return button;
       }
     }
     else if (me.getHealthCheckRepositoryStatusStore().loaded) {
       var classes = "x-btn x-unselectable x-btn-nx-plain-small x-btn-nx-plain-toolbar-small-disabled";
-      var text = '<span class="x-btn-inner x-btn-inner-center" unselectable="on">' + NX.I18n.get('ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_ANALYZE') + '</span>';
+      var text = '<span class="x-btn-inner x-btn-inner-center" unselectable="on">' + NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_ANALYZE') + '</span>';
       var button = '<a class="' + classes + '" disabled="true" hidefocus="on" unselectable="on">' + text + '</a>';
       return button;
     }
-    return NX.I18n.get('ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_LOADING');
+    return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_LOADING');
   },
 
   /**
@@ -208,7 +208,7 @@ Ext.define('NX.coreui_legacy.controller.HealthCheckRepositoryColumn', {
         if (status) {
           if (status.get('enabled')) {
             if (status.get('analyzing')) {
-              html = NX.I18n.get('ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_ANALYZING_TOOLTIP');
+              html = NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_ANALYZING_TOOLTIP');
             }
             else {
               if (NX.Permissions.check('nexus:healthchecksummary', 'read')) {
@@ -216,18 +216,18 @@ Ext.define('NX.coreui_legacy.controller.HealthCheckRepositoryColumn', {
                 Ext.defer(me.showSummary, 0, me, [status, cell.getX(), cell.getY()]);
                 return false;
               }
-              html = NX.I18n.get('ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_VIEW_PERMISSION_ERROR');
+              html = NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_VIEW_PERMISSION_ERROR');
             }
           }
           else if (NX.Permissions.check('nexus:healthcheck', 'update')) {
-            html = NX.I18n.get('ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_ANALYZE_TOOLTIP');
+            html = NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_ANALYZE_TOOLTIP');
           }
           else {
-            html = NX.I18n.get('ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_ANALYZE_PERMISSION_ERROR');
+            html = NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_ANALYZE_PERMISSION_ERROR');
           }
         }
         else if (me.getHealthCheckRepositoryStatusStore().loaded) {
-          html = NX.I18n.get('ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_UNAVAILABLE_TOOLTIP');
+          html = NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_UNAVAILABLE_TOOLTIP');
         }
         tip.update(html);
         return true;
@@ -262,7 +262,7 @@ Ext.define('NX.coreui_legacy.controller.HealthCheckRepositoryColumn', {
 
     if (!summary) {
       summary = Ext.widget({
-        xtype: 'nx-coreui-healthcheck-summary',
+        xtype: 'nx-coreui_legacy-healthcheck-summary',
         x: x,
         y: y,
         height: statusModel.get('iframeHeight') + 8,
@@ -288,12 +288,12 @@ Ext.define('NX.coreui_legacy.controller.HealthCheckRepositoryColumn', {
     if (status && !status.get('enabled') && NX.Permissions.check('nexus:healthcheck', 'update')) {
       list.healthCheckTooltip.hide();
       Ext.Msg.show({
-        title: NX.I18n.get('ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_ANALYZE_DIALOG'),
+        title: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_ANALYZE_DIALOG'),
         msg: NX.I18n.format('ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_ANALYZE_DIALOG_HELP', Ext.util.Format.htmlEncode(repositoryModel.get('name'))),
         buttons: 7, // OKYESNO
         buttonText: {
-          ok: NX.I18n.get('ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_ANALYZE_DIALOG_OK'),
-          yes: NX.I18n.get('ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_ANALYZE_DIALOG_YES')
+          ok: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_ANALYZE_DIALOG_OK'),
+          yes: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_ANALYZE_DIALOG_YES')
         },
         icon: Ext.MessageBox.QUESTION,
         closeable: false,
@@ -303,7 +303,7 @@ Ext.define('NX.coreui_legacy.controller.HealthCheckRepositoryColumn', {
               me.enableAnalysis(buttonName === 'yes' ? status.getId() : undefined);
             }
             else {
-              Ext.widget('nx-coreui-healthcheck-eula', {
+              Ext.widget('nx-coreui_legacy-healthcheck-eula', {
                 acceptFn: function() {
                   me.enableAnalysis(buttonName === 'yes' ? status.getId() : undefined);
                 }

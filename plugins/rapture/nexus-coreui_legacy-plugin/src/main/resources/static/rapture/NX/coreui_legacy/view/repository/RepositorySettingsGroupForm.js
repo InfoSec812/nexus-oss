@@ -26,7 +26,7 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsGroupForm', {
   ],
 
   api: {
-    submit: 'NX.direct.coreui_Repository.updateGroup'
+    submit: 'NX.direct.coreui_legacy_Repository.updateGroup'
   },
   settingsFormSuccessMessage: function(data) {
     return 'Repository updated: ' + data['id'];
@@ -45,23 +45,23 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsGroupForm', {
       {
         xtype: 'checkbox',
         name: 'browseable',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_BROWSING'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_BROWSING'),
         value: true
       },
       {
         xtype: 'checkbox',
         name: 'exposed',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_PUBLISH'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_PUBLISH'),
         value: true
       },
       {
         xtype: 'nx-itemselector',
         name: 'memberRepositoryIds',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_MEMBERS'),
-        helpText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_MEMBERS_HELP'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_MEMBERS'),
+        helpText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_MEMBERS_HELP'),
         buttons: ['up', 'add', 'remove', 'down'],
-        fromTitle: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_MEMBERS_FROM'),
-        toTitle: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_MEMBERS_TO'),
+        fromTitle: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_MEMBERS_FROM'),
+        toTitle: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_MEMBERS_TO'),
         store: me.repositoryStore,
         valueField: 'id',
         displayField: 'name',

@@ -33,25 +33,25 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsCommon', {
     {
       name: 'id',
       itemId: 'id',
-      fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_ID'),
-      helpText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_ID_HELP'),
+      fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_ID'),
+      helpText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_ID_HELP'),
       readOnly: true,
       validator: function(value) {
         if (/^[a-zA-Z0-9_\-\.]+$/.test(value)) {
           return true;
         }
-        return NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_ID_ERROR');
+        return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_ID_ERROR');
       }
     },
     {
       name: 'name',
-      fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_NAME'),
-      helpText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_NAME_HELP'),
+      fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_NAME'),
+      helpText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_NAME_HELP'),
     },
     {
       name: 'providerName',
       itemId: 'providerName',
-      fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_PROVIDER'),
+      fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_PROVIDER'),
       readOnly: true,
       submitValue: false,
       allowBlank: true
@@ -59,7 +59,7 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsCommon', {
     {
       name: 'formatName',
       itemId: 'formatName',
-      fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_FORMAT'),
+      fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_FORMAT'),
       readOnly: true,
       submitValue: false,
       allowBlank: true

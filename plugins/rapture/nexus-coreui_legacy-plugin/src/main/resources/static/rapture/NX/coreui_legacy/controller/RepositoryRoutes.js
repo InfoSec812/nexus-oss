@@ -26,7 +26,7 @@ Ext.define('NX.coreui_legacy.controller.RepositoryRoutes', {
     'NX.I18n'
   ],
 
-  masters: 'nx-coreui-repositoryroute-list',
+  masters: 'nx-coreui_legacy-repositoryroute-list',
 
   models: [
     'RepositoryRoute'
@@ -43,8 +43,8 @@ Ext.define('NX.coreui_legacy.controller.RepositoryRoutes', {
     'repositoryroute.RepositoryRouteSettingsForm'
   ],
   refs: [
-    { ref: 'feature', selector: 'nx-coreui-repositoryroute-feature' },
-    { ref: 'list', selector: 'nx-coreui-repositoryroute-list' },
+    { ref: 'feature', selector: 'nx-coreui_legacy-repositoryroute-feature' },
+    { ref: 'list', selector: 'nx-coreui_legacy-repositoryroute-list' },
     { ref: 'settings', selector: 'nx-coreui_legacy-repositoryroute-feature nx-coreui_legacy-repositoryroute-settings' }
   ],
   icons: {
@@ -56,9 +56,9 @@ Ext.define('NX.coreui_legacy.controller.RepositoryRoutes', {
   features: {
     mode: 'admin',
     path: '/Repository/Routing',
-    text: NX.I18n.get('ADMIN_ROUTING_TITLE'),
-    description: NX.I18n.get('ADMIN_ROUTING_SUBTITLE'),
-    view: { xtype: 'nx-coreui-repositoryroute-feature' },
+    text: NX.I18n.get('LEGACY_ADMIN_ROUTING_TITLE'),
+    description: NX.I18n.get('LEGACY_ADMIN_ROUTING_SUBTITLE'),
+    view: { xtype: 'nx-coreui_legacy-repositoryroute-feature' },
     iconConfig: {
       file: 'arrow_branch.png',
       variants: ['x16', 'x32']
@@ -84,13 +84,13 @@ Ext.define('NX.coreui_legacy.controller.RepositoryRoutes', {
         }
       },
       component: {
-        'nx-coreui-repositoryroute-list button[action=new]': {
+        'nx-coreui_legacy-repositoryroute-list button[action=new]': {
           click: me.showAddWindow
         },
-        'nx-coreui-repositoryroute-settings-form': {
+        'nx-coreui_legacy-repositoryroute-settings-form': {
           submitted: me.onSettingsSubmitted
         },
-        'nx-coreui-repositoryroute-settings-form #mappingType': {
+        'nx-coreui_legacy-repositoryroute-settings-form #mappingType': {
           change: me.onMappingTypeChanged
         }
       }
@@ -123,7 +123,7 @@ Ext.define('NX.coreui_legacy.controller.RepositoryRoutes', {
       feature = me.getFeature();
 
     // Show the first panel in the create wizard, and set the breadcrumb
-    feature.setItemName(1, NX.I18n.get('ADMIN_ROUTING_CREATE_TITLE'));
+    feature.setItemName(1, NX.I18n.get('LEGACY_ADMIN_ROUTING_CREATE_TITLE'));
     me.loadCreateWizard(1, true, Ext.create('widget.nx-coreui_legacy-repositoryroute-add'));
   },
 
@@ -164,7 +164,7 @@ Ext.define('NX.coreui_legacy.controller.RepositoryRoutes', {
    */
   onSettingsSubmitted: function(form, action) {
     var me = this,
-        win = form.up('nx-coreui-repositoryroute-add');
+        win = form.up('nx-coreui_legacy-repositoryroute-add');
 
     if (win) {
       me.loadStoreAndSelect(action.result.data.id, false);
@@ -177,13 +177,13 @@ Ext.define('NX.coreui_legacy.controller.RepositoryRoutes', {
    * @private
    * @override
    * Deletes a repository route.
-   * @param {NX.coreui.model.RepositoryRoute} model repository route to be deleted
+   * @param {NX.coreui_legacy.model.RepositoryRoute} model repository route to be deleted
    */
   deleteModel: function(model) {
     var me = this,
         description = me.getDescription(model);
 
-    NX.direct.coreui_RepositoryRoute.remove(model.getId(), function(response) {
+    NX.direct.coreui_legacy_RepositoryRoute.remove(model.getId(), function(response) {
       me.loadStore();
       if (Ext.isObject(response) && response.success) {
         NX.Messages.add({ text: NX.I18n.format('ADMIN_ROUTING_DELETE_SUCCESS', description), type: 'success' });

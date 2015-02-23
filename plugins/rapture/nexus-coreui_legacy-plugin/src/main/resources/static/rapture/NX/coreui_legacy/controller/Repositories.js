@@ -30,7 +30,7 @@ Ext.define('NX.coreui_legacy.controller.Repositories', {
     'NX.I18n'
   ],
 
-  masters: 'nx-coreui-repository-list',
+  masters: 'nx-coreui_legacy-repository-list',
 
   models: [
     'Repository'
@@ -60,10 +60,10 @@ Ext.define('NX.coreui_legacy.controller.Repositories', {
     'repository.RepositorySettingsVirtualForm'
   ],
   refs: [
-    { ref: 'feature', selector: 'nx-coreui-repository-feature' },
-    { ref: 'list', selector: 'nx-coreui-repository-list' },
-    { ref: 'settings', selector: 'nx-coreui-repository-settings' },
-    { ref: 'selectTemplate', selector: 'nx-coreui-repository-selecttemplate' }
+    { ref: 'feature', selector: 'nx-coreui_legacy-repository-feature' },
+    { ref: 'list', selector: 'nx-coreui_legacy-repository-list' },
+    { ref: 'settings', selector: 'nx-coreui_legacy-repository-settings' },
+    { ref: 'selectTemplate', selector: 'nx-coreui_legacy-repository-selecttemplate' }
   ],
   icons: {
     'repository-default': {
@@ -73,10 +73,10 @@ Ext.define('NX.coreui_legacy.controller.Repositories', {
   },
   features: {
     mode: 'admin',
-    path: '/Repository/Repositories',
-    text: NX.I18n.get('ADMIN_REPOSITORIES_TITLE'),
-    description: NX.I18n.get('ADMIN_REPOSITORIES_SUBTITLE'),
-    view: { xtype: 'nx-coreui-repository-feature' },
+    path: '/Repository/Repositories_legacy',
+    text: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_TITLE'),
+    description: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SUBTITLE'),
+    view: { xtype: 'nx-coreui_legacy-repository-feature' },
     iconConfig: {
       file: 'database.png',
       variants: ['x16', 'x32']
@@ -105,21 +105,21 @@ Ext.define('NX.coreui_legacy.controller.Repositories', {
         }
       },
       component: {
-        'nx-coreui-repository-list': {
+        'nx-coreui_legacy-repository-list': {
           beforerender: me.loadRelatedStores,
           afterrender: me.startStatusPolling,
           beforedestroy: me.stopStatusPolling
         },
-        'nx-coreui-repository-feature button[action=browse]': {
+        'nx-coreui_legacy-repository-feature button[action=browse]': {
           click: me.navigateToBrowseMode
         },
-        'nx-coreui-repository-list button[action=new]': {
+        'nx-coreui_legacy-repository-list button[action=new]': {
           click: me.showSelectTemplatePanel
         },
-        'nx-coreui-repository-settings-form': {
+        'nx-coreui_legacy-repository-settings-form': {
           submitted: me.onSettingsSubmitted
         },
-        'nx-coreui-repository-selecttemplate': {
+        'nx-coreui_legacy-repository-selecttemplate': {
           cellclick: me.showAddRepositoryPanel
         }
       }
@@ -171,7 +171,7 @@ Ext.define('NX.coreui_legacy.controller.Repositories', {
       feature = me.getFeature();
 
     // Show the first panel in the create wizard, and set the breadcrumb
-    feature.setItemName(1, NX.I18n.get('ADMIN_REPOSITORIES_SELECT_TITLE'));
+    feature.setItemName(1, NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SELECT_TITLE'));
     me.loadCreateWizard(1, true, Ext.widget({
       xtype: 'panel',
       layout: {
@@ -182,7 +182,7 @@ Ext.define('NX.coreui_legacy.controller.Repositories', {
       items: [
         { xtype: 'nx-drilldown-actions' },
         {
-          xtype: 'nx-coreui-repository-selecttemplate',
+          xtype: 'nx-coreui_legacy-repository-selecttemplate',
           flex: 1
         }
       ]
@@ -222,7 +222,7 @@ Ext.define('NX.coreui_legacy.controller.Repositories', {
     if (NX.Conditions.isPermitted("nexus:cache", "delete")
         && type !== 'virtual' && localStatus === 'IN_SERVICE' && userManaged) {
       button.menu.add({
-        text: NX.I18n.get('ADMIN_REPOSITORIES_DETAILS_EXPIRE_ITEM'), action: 'expirecache', handler: Ext.bind(me.expireCache, me, [model])
+        text: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_DETAILS_EXPIRE_ITEM'), action: 'expirecache', handler: Ext.bind(me.expireCache, me, [model])
       });
     }
 
@@ -231,7 +231,7 @@ Ext.define('NX.coreui_legacy.controller.Repositories', {
         && (provider === 'maven2' || provider === 'maven1')
         && (type === 'hosted' || type === 'group') && localStatus === 'IN_SERVICE' && userManaged) {
       button.menu.add({
-        text: NX.I18n.get('ADMIN_REPOSITORIES_DETAILS_REBUILD_ITEM'), action: 'rebuildmetadata', handler: Ext.bind(me.rebuildMavenMetadata, me, [model])
+        text: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_DETAILS_REBUILD_ITEM'), action: 'rebuildmetadata', handler: Ext.bind(me.rebuildMavenMetadata, me, [model])
       });
     }
 
@@ -239,7 +239,7 @@ Ext.define('NX.coreui_legacy.controller.Repositories', {
     if (NX.Conditions.isPermitted("nexus:repostatus", "update")
         && type === 'proxy' && proxyMode === 'ALLOW') {
       button.menu.add({
-        text: NX.I18n.get('ADMIN_REPOSITORIES_DETAILS_BLOCK_ITEM'), action: 'blockproxy', handler: Ext.bind(me.blockProxy, me, [model])
+        text: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_DETAILS_BLOCK_ITEM'), action: 'blockproxy', handler: Ext.bind(me.blockProxy, me, [model])
       });
     }
 
@@ -247,7 +247,7 @@ Ext.define('NX.coreui_legacy.controller.Repositories', {
     if (NX.Conditions.isPermitted("nexus:repostatus", "update")
         && type === 'proxy' && proxyMode !== 'ALLOW') {
       button.menu.add({
-        text: NX.I18n.get('ADMIN_REPOSITORIES_DETAILS_ALLOW_ITEM'), action: 'allowproxy', handler: Ext.bind(me.allowProxy, me, [model])
+        text: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_DETAILS_ALLOW_ITEM'), action: 'allowproxy', handler: Ext.bind(me.allowProxy, me, [model])
       });
     }
 
@@ -255,7 +255,7 @@ Ext.define('NX.coreui_legacy.controller.Repositories', {
     if (NX.Conditions.isPermitted("nexus:repostatus", "update")
         && type !== 'group' && localStatus === 'IN_SERVICE') {
       button.menu.add({
-        text: NX.I18n.get('ADMIN_REPOSITORIES_DETAILS_POOS_ITEM'), action: 'putoutofservice', handler: Ext.bind(me.putOutOfService, me, [model])
+        text: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_DETAILS_POOS_ITEM'), action: 'putoutofservice', handler: Ext.bind(me.putOutOfService, me, [model])
       });
     }
 
@@ -263,7 +263,7 @@ Ext.define('NX.coreui_legacy.controller.Repositories', {
     if (NX.Conditions.isPermitted("nexus:repostatus", "update")
         && type !== 'group' && localStatus !== 'IN_SERVICE') {
       button.menu.add({
-        text: NX.I18n.get('ADMIN_REPOSITORIES_DETAILS_PRIS_ITEM'), action: 'putinservice', handler: Ext.bind(me.putInService, me, [model])
+        text: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_DETAILS_PRIS_ITEM'), action: 'putinservice', handler: Ext.bind(me.putInService, me, [model])
       });
     }
 
@@ -273,10 +273,10 @@ Ext.define('NX.coreui_legacy.controller.Repositories', {
         && (provider === 'maven2' || provider === 'maven1')
         && type !== 'virtual') {
       button.menu.add({
-        text: NX.I18n.get('ADMIN_REPOSITORIES_DETAILS_REPAIR_ITEM'), action: 'repairindex', handler: Ext.bind(me.repairIndex, me, [model])
+        text: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_DETAILS_REPAIR_ITEM'), action: 'repairindex', handler: Ext.bind(me.repairIndex, me, [model])
       });
       button.menu.add({
-        text: NX.I18n.get('ADMIN_REPOSITORIES_DETAILS_UPDATE_ITEM'), action: 'updateindex', handler: Ext.bind(me.updateIndex, me, [model])
+        text: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_DETAILS_UPDATE_ITEM'), action: 'updateindex', handler: Ext.bind(me.updateIndex, me, [model])
       });
     }
   },
@@ -340,7 +340,7 @@ Ext.define('NX.coreui_legacy.controller.Repositories', {
    */
   onSettingsSubmitted: function(form, action) {
     var me = this,
-        win = form.up('nx-coreui-repository-add');
+        win = form.up('nx-coreui_legacy-repository-add');
 
     if (win) {
       me.loadStoreAndSelect(action.result.data.id, false);

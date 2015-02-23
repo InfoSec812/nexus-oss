@@ -29,7 +29,7 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsVirtualForm', {
     submit: 'NX.direct.coreui_legacy_Repository.updateVirtual'
   },
   settingsFormSuccessMessage: function(data) {
-    return NX.I18n.get('ADMIN_REPOSITORIES_UPDATE_SUCCESS') + data['id'];
+    return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_UPDATE_SUCCESS') + data['id'];
   },
 
   initComponent: function() {
@@ -47,22 +47,22 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsVirtualForm', {
       {
         xtype: 'checkbox',
         name: 'browseable',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_BROWSING'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_BROWSING'),
         value: true
       },
       {
         xtype: 'checkbox',
         name: 'exposed',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_PUBLISH'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_PUBLISH'),
         value: true
       },
       {
         xtype: 'combo',
         name: 'shadowOf',
         itemId: 'shadowOf',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_SOURCE'),
-        helpText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_SOURCE_HELP'),
-        emptyText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_SOURCE_PLACEHOLDER'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_SOURCE'),
+        helpText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_SOURCE_HELP'),
+        emptyText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_SOURCE_PLACEHOLDER'),
         editable: false,
         readOnly: true,
         store: me.repositoryStore,
@@ -73,8 +73,8 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsVirtualForm', {
       {
         xtype: 'checkbox',
         name: 'synchronizeAtStartup',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_SYNCHRONIZE'),
-        helpText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_SYNCHRONIZE_HELP'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_SYNCHRONIZE'),
+        helpText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_SYNCHRONIZE_HELP'),
         value: true
       }
     ];

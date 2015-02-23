@@ -25,7 +25,7 @@ Ext.define('NX.coreui_legacy.store.Repository', {
     type: 'direct',
 
     api: {
-      read: 'NX.direct.coreui_Repository.read'
+      read: 'NX.direct.coreui_legacy_Repository.read'
     },
 
     reader: {

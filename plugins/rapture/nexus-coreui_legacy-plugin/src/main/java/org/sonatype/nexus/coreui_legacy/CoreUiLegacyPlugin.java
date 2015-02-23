@@ -21,13 +21,13 @@ import org.eclipse.sisu.EagerSingleton;
 import org.jetbrains.annotations.NonNls;
 
 /**
- * Core UI plugin.
+ * Core UI legacy plugin.
  *
  * @since 3.0
  */
 @Named
 @EagerSingleton
-public class CoreUiPlugin
+public class CoreUiLegacyPlugin
     extends PluginIdentity
 {
   /**
@@ -49,7 +49,7 @@ public class CoreUiPlugin
   public static final String ARTIFACT_ID = "nexus-" + ID_PREFIX + "-plugin";
 
   @Inject
-  public CoreUiPlugin() throws Exception {
+  public CoreUiLegacyPlugin() throws Exception {
     super(GROUP_ID, ARTIFACT_ID);
   }
 }

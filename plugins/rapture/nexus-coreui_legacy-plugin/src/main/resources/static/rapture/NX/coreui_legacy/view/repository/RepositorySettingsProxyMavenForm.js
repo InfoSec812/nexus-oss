@@ -30,10 +30,10 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsProxyMavenForm', 
   ],
 
   api: {
-    submit: 'NX.direct.coreui_Repository.updateProxyMaven'
+    submit: 'NX.direct.coreui_legacy_Repository.updateProxyMaven'
   },
   settingsFormSuccessMessage: function(data) {
-    return NX.I18n.get('ADMIN_REPOSITORIES_UPDATE_SUCCESS') + data['id'];
+    return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_UPDATE_SUCCESS') + data['id'];
   },
 
   /**
@@ -47,77 +47,77 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsProxyMavenForm', 
         xtype: 'combo',
         name: 'repositoryPolicy',
         itemId: 'repositoryPolicy',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_POLICY'),
-        helpText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_POLICY_HELP'),
-        emptyText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_POLICY_PLACEHOLDER'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_POLICY'),
+        helpText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_POLICY_HELP'),
+        emptyText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_POLICY_PLACEHOLDER'),
         editable: false,
         store: [
-          ['RELEASE', NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_POLICY_RELEASE_ITEM')],
-          ['SNAPSHOT', NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_POLICY_SNAPSHOTS_ITEM')]
+          ['RELEASE', NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_POLICY_RELEASE_ITEM')],
+          ['SNAPSHOT', NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_POLICY_SNAPSHOTS_ITEM')]
         ],
         queryMode: 'local',
         readOnly: true,
         allowBlank: true,
         submitValue: false
       },
-      { xtype: 'nx-coreui-repository-settings-localstorage' },
+      { xtype: 'nx-coreui_legacy-repository-settings-localstorage' },
       {
         xtype: 'nx-url',
         name: 'remoteStorageUrl',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_REMOTE'),
-        helpText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_REMOTE_HELP'),
-        emptyText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_REMOTE_PLACEHOLDER')
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_REMOTE'),
+        helpText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_REMOTE_HELP'),
+        emptyText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_REMOTE_PLACEHOLDER')
       },
       {
         xtype: 'checkbox',
         name: 'downloadRemoteIndexes',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_DOWNLOAD'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_DOWNLOAD'),
         value: true
       },
       {
         xtype: 'checkbox',
         name: 'autoBlockActive',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_BLOCKING'),
-        helpText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_BLOCKING_HELP'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_BLOCKING'),
+        helpText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_BLOCKING_HELP'),
         value: true
       },
       {
         xtype: 'checkbox',
         name: 'fileTypeValidation',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_FILE'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_FILE'),
         value: true
       },
       {
         xtype: 'combo',
         name: 'checksumPolicy',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_CHECKSUM'),
-        emptyText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_CHECKSUM_PLACEHOLDER'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_CHECKSUM'),
+        emptyText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_CHECKSUM_PLACEHOLDER'),
         editable: false,
         store: [
-          ['IGNORE', NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_CHECKSUM_IGNORE_ITEM')],
-          ['WARN', NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_CHECKSUM_WARN_ITEM')],
-          ['STRICT_IF_EXISTS', NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_CHECKSUM_EXISTS_ITEM')],
-          ['STRICT', NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_CHECKSUM_STRICT_ITEM')]
+          ['IGNORE', NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_CHECKSUM_IGNORE_ITEM')],
+          ['WARN', NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_CHECKSUM_WARN_ITEM')],
+          ['STRICT_IF_EXISTS', NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_CHECKSUM_EXISTS_ITEM')],
+          ['STRICT', NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_CHECKSUM_STRICT_ITEM')]
         ],
         queryMode: 'local'
       },
       {
         xtype: 'checkbox',
         name: 'browseable',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_BROWSING'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_BROWSING'),
         value: true
       },
       {
         xtype: 'checkbox',
         name: 'exposed',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_PUBLISH'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_PUBLISH'),
         value: true
       },
       {
         xtype: 'numberfield',
         name: 'notFoundCacheTTL',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_TTL'),
-        helpText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_TTL_HELP'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_TTL'),
+        helpText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_TTL_HELP'),
         minValue: -1,
         maxValue: 511000,
         allowDecimals: false,
@@ -127,8 +127,8 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsProxyMavenForm', 
       {
         xtype: 'numberfield',
         name: 'artifactMaxAge',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_ARTIFACT_AGE'),
-        helpText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_ARTIFACT_AGE_HELP'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_ARTIFACT_AGE'),
+        helpText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_ARTIFACT_AGE_HELP'),
         minValue: -1,
         maxValue: 511000,
         allowDecimals: false,
@@ -138,8 +138,8 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsProxyMavenForm', 
       {
         xtype: 'numberfield',
         name: 'metadataMaxAge',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_METADATA_AGE'),
-        helpText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_METADATA_AGE_HELP'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_METADATA_AGE'),
+        helpText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_METADATA_AGE_HELP'),
         minValue: -1,
         maxValue: 511000,
         allowDecimals: false,
@@ -149,8 +149,8 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsProxyMavenForm', 
       {
         xtype: 'numberfield',
         name: 'itemMaxAge',
-        fieldLabel: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_ITEM_AGE'),
-        helpText: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_ITEM_AGE_HELP'),
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_ITEM_AGE'),
+        helpText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_ITEM_AGE_HELP'),
         minValue: -1,
         maxValue: 511000,
         allowDecimals: false,
@@ -159,7 +159,7 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsProxyMavenForm', 
       },
       {
         xtype: 'nx-optionalfieldset',
-        title: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_AUTHENTICATION'),
+        title: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_AUTHENTICATION'),
         checkboxToggle: true,
         checkboxName: 'authEnabled',
         collapsed: true,
@@ -169,7 +169,7 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsProxyMavenForm', 
       },
       {
         xtype: 'nx-optionalfieldset',
-        title: NX.I18n.get('ADMIN_REPOSITORIES_SETTINGS_HTTP'),
+        title: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_HTTP'),
         checkboxToggle: true,
         checkboxName: 'httpRequestSettings',
         collapsed: true,

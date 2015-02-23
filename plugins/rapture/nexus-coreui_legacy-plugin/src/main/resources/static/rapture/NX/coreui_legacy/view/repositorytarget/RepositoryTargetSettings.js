@@ -24,7 +24,7 @@ Ext.define('NX.coreui_legacy.view.repositorytarget.RepositoryTargetSettings', {
     'NX.I18n'
   ],
 
-  title: NX.I18n.get('ADMIN_TARGETS_DETAILS_SETTINGS_TAB'),
+  title: NX.I18n.get('LEGACY_ADMIN_TARGETS_DETAILS_SETTINGS_TAB'),
 
   items: { xtype: 'nx-coreui_legacy-repositorytarget-settings-form' }
 });
