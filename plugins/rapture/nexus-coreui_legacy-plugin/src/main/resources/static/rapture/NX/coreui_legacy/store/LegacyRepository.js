@@ -13,32 +13,29 @@
 /*global Ext, NX*/
 
 /**
- * Add proxy repository window.
+ * Repository store.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.repository.RepositoryAddProxy', {
-  extend: 'NX.coreui_legacy.view.repository.RepositoryAdd',
-  alias: 'widget.nx-repository-add-proxy',
-  requires: [
-    'NX.I18n'
-  ],
+Ext.define('NX.coreui_legacy.store.LegacyRepository', {
+  extend: 'Ext.data.Store',
+  model: 'NX.coreui_legacy.model.LegacyRepository',
 
-  initComponent: function() {
-    var me = this;
+  proxy: {
+    type: 'direct',
 
-    me.items = {
-      xtype: 'nx-repository-settings-proxy-form',
-      template: me.template,
-      api: {
-        submit: 'NX.direct.coreui_legacy_Repository.createProxy'
-      },
-      settingsFormSuccessMessage: function(data) {
-        return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_CREATE_PROXY_SUCCESS') + data['id'];
-      }
-    };
+    api: {
+      read: 'NX.direct.coreui_legacy_Repository.read'
+    },
 
-    me.callParent(arguments);
-  }
+    reader: {
+      type: 'json',
+      root: 'data',
+      idProperty: 'id',
+      successProperty: 'success'
+    }
+  },
 
+  sortOnLoad: true,
+  sorters: { property: 'name', direction: 'ASC' }
 });

@@ -13,29 +13,12 @@
 /*global Ext, NX*/
 
 /**
- * Select repository template window.
+ * Legacy repository "Settings" panel.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.repository.RepositorySelectTemplate', {
-  extend: 'NX.view.drilldown.Master',
-  alias: 'widget.nx-coreui_legacy-repository-selecttemplate',
-  requires: [
-    'NX.I18n'
-  ],
-
-  store: 'RepositoryTemplate',
-  columns: [
-    {
-      xtype: 'nx-iconcolumn',
-      width: 36,
-      iconVariant: 'x16',
-      iconName: function() {
-        return 'repository-default';
-      }
-    },
-    { header: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SELECT_PROVIDER_COLUMN'), dataIndex: 'providerName', flex: 2 },
-    { header: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SELECT_TYPE_COLUMN'), dataIndex: 'type', flex: 1 }
-  ]
+Ext.define('NX.coreui_legacy.view.legacyrepository.LegacyRepositorySettings', {
+  extend: 'NX.view.SettingsPanel',
+  alias: 'widget.nx-coreui_legacy-repository-settings'
 
 });

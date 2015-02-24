@@ -33,7 +33,7 @@ Ext.define('NX.coreui_legacy.controller.RepositoryRoutes', {
   ],
   stores: [
     'RepositoryRoute',
-    'Repository'
+    'LegacyRepository'
   ],
   views: [
     'repositoryroute.RepositoryRouteAdd',

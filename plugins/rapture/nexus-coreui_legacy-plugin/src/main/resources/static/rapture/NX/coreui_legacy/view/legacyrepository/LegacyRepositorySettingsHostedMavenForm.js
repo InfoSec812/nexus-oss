@@ -17,8 +17,8 @@
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsHostedMavenForm', {
-  extend: 'NX.coreui_legacy.view.repository.RepositorySettingsForm',
+Ext.define('NX.coreui_legacy.view.legacyrepository.LegacyRepositorySettingsHostedMavenForm', {
+  extend: 'NX.coreui_legacy.view.legacyrepository.LegacyRepositorySettingsForm',
   alias: [
     'widget.nx-repository-settings-hosted-maven1-form',
     'widget.nx-repository-settings-hosted-maven2-form'

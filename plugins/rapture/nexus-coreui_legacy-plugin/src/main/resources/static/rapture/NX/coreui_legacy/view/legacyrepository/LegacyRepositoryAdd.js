@@ -13,32 +13,43 @@
 /*global Ext, NX*/
 
 /**
- * Add hosted repository window.
+ * Add repository window.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.repository.RepositoryAddHosted', {
-  extend: 'NX.coreui_legacy.view.repository.RepositoryAdd',
-  alias: 'widget.nx-repository-add-hosted',
+Ext.define('NX.coreui_legacy.view.repository.LegacyRepositoryAdd', {
+  extend: 'NX.view.AddWindow',
+  alias: 'widget.nx-coreui_legacy-repository-add',
   requires: [
+    'NX.Conditions',
     'NX.I18n'
   ],
+  ui: 'nx-inset',
 
-  initComponent: function() {
+  editableMarker: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_CREATE_ERROR'),
+
+  defaultFocus: 'id',
+
+  initComponent: function () {
     var me = this;
 
-    me.items = {
-      xtype: 'nx-repository-settings-hosted-form',
-      template: me.template,
-      api: {
-        submit: 'NX.direct.coreui_legacy_Repository.createHosted'
-      },
-      settingsFormSuccessMessage: function(data) {
-        return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_CREATE_HOSTED_SUCCESS') + data['id'];
-      }
-    };
+    me.editableCondition = NX.Conditions.isPermitted('nexus:repositories', 'create');
+
+    me.items.buttons = [
+      { text: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_NEW_BUTTON'), action: 'add', formBind: true, ui: 'nx-primary' },
+      { text: NX.I18n.get('GLOBAL_DIALOG_ADD_CANCEL_BUTTON'), handler: function () {
+        this.up('nx-drilldown').showChild(0, true);
+      }}
+    ];
 
     me.callParent(arguments);
-  }
 
+    me.down('#id').setReadOnly(false);
+
+    me.down('form').add({
+      xtype: 'hiddenfield',
+      name: 'template',
+      value: me.template.id
+    });
+  }
 });

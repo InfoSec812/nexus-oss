@@ -13,13 +13,13 @@
 /*global Ext, NX*/
 
 /**
- * Add repository group window.
+ * Add maven hosted repository window.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.repository.RepositoryAddGroup', {
-  extend: 'NX.coreui_legacy.view.repository.RepositoryAdd',
-  alias: 'widget.nx-repository-add-group',
+Ext.define('NX.coreui_legacy.view.legacyrepository.LegacyRepositoryAddHostedMaven', {
+  extend: 'NX.coreui_legacy.view.legacyrepository.LegacyRepositoryAdd',
+  alias: ['widget.nx-repository-add-hosted-maven1', 'widget.nx-repository-add-hosted-maven2'],
   requires: [
     'NX.I18n'
   ],
@@ -28,17 +28,19 @@ Ext.define('NX.coreui_legacy.view.repository.RepositoryAddGroup', {
     var me = this;
 
     me.items = {
-      xtype: 'nx-repository-settings-group-form',
+      xtype: 'nx-repository-settings-hosted-maven2-form',
       template: me.template,
       api: {
-        submit: 'NX.direct.coreui_legacy_Repository.createGroup'
+        submit: 'NX.direct.coreui_legacy_Repository.createHostedMaven'
       },
       settingsFormSuccessMessage: function(data) {
-        return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_CREATE_GROUP_SUCCESS') + data['id'];
+        return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_CREATE_MAVEN_SUCCESS') + data['id'];
       }
     };
 
     me.callParent(arguments);
+
+    me.down('#repositoryPolicy').hide();
   }
 
 });

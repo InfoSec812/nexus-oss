@@ -17,7 +17,7 @@
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.model.Repository', {
+Ext.define('NX.coreui_legacy.model.LegacyRepository', {
   extend: 'Ext.data.Model',
   fields: [
     'id',

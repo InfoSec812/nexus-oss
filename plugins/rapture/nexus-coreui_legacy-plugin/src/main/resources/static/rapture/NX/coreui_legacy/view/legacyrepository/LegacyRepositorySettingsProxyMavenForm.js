@@ -17,8 +17,8 @@
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsProxyMavenForm', {
-  extend: 'NX.coreui_legacy.view.repository.RepositorySettingsForm',
+Ext.define('NX.coreui_legacy.view.legacyrepository.LegacyRepositorySettingsProxyMavenForm', {
+  extend: 'NX.coreui_legacy.view.legacyrepository.LegacyRepositorySettingsForm',
   alias: [
     'widget.nx-repository-settings-proxy-maven1-form',
     'widget.nx-repository-settings-proxy-maven2-form'

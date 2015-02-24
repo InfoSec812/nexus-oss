@@ -55,7 +55,7 @@ Ext.define('NX.coreui_legacy.controller.HealthCheckRepositoryColumn', {
         }
       },
       store: {
-        '#Repository': {
+        '#LegacyRepository': {
           load: me.loadHealthCheckStatus
         },
         '#HealthCheckRepositoryStatus': {

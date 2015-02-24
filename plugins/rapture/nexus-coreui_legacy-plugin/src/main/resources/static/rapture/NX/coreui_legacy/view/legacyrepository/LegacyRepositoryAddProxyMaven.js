@@ -13,12 +13,34 @@
 /*global Ext, NX*/
 
 /**
- * Repository "Settings" panel.
+ * Add maven proxy repository window.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.repository.RepositorySettings', {
-  extend: 'NX.view.SettingsPanel',
-  alias: 'widget.nx-coreui_legacy-repository-settings'
+Ext.define('NX.coreui_legacy.view.legacyrepository.LegacyRepositoryAddProxyMaven', {
+  extend: 'NX.coreui_legacy.view.legacyrepository.LegacyRepositoryAdd',
+  alias: ['widget.nx-repository-add-proxy-maven1', 'widget.nx-repository-add-proxy-maven2'],
+  requires: [
+    'NX.I18n'
+  ],
+
+  initComponent: function() {
+    var me = this;
+
+    me.items = {
+      xtype: 'nx-repository-settings-proxy-maven2-form',
+      template: me.template,
+      api: {
+        submit: 'NX.direct.coreui_legacy_Repository.createProxyMaven'
+      },
+      settingsFormSuccessMessage: function(data) {
+        return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_CREATE_MAVEN_PROXY_SUCCESS') + data['id'];
+      }
+    };
+
+    me.callParent(arguments);
+
+    me.down('#repositoryPolicy').hide();
+  }
 
 });

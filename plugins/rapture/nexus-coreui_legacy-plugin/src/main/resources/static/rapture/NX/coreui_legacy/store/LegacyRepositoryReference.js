@@ -13,34 +13,30 @@
 /*global Ext, NX*/
 
 /**
- * Add maven hosted repository window.
+ * Legacy repository reference store.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.repository.RepositoryAddHostedMaven', {
-  extend: 'NX.coreui_legacy.view.repository.RepositoryAdd',
-  alias: ['widget.nx-repository-add-hosted-maven1', 'widget.nx-repository-add-hosted-maven2'],
-  requires: [
-    'NX.I18n'
-  ],
+Ext.define('NX.coreui_legacy.store.LegacyRepositoryReference', {
+  extend: 'Ext.data.Store',
+  model: 'NX.coreui_legacy.model.LegacyRepositoryReference',
 
-  initComponent: function() {
-    var me = this;
+  proxy: {
+    type: 'direct',
 
-    me.items = {
-      xtype: 'nx-repository-settings-hosted-maven2-form',
-      template: me.template,
-      api: {
-        submit: 'NX.direct.coreui_legacy_Repository.createHostedMaven'
-      },
-      settingsFormSuccessMessage: function(data) {
-        return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_CREATE_MAVEN_SUCCESS') + data['id'];
-      }
-    };
+    api: {
+      read: 'NX.direct.coreui_legacy_Repository.readReferences'
+    },
 
-    me.callParent(arguments);
+    reader: {
+      type: 'json',
+      root: 'data',
+      idProperty: 'id',
+      successProperty: 'success'
+    }
+  },
 
-    me.down('#repositoryPolicy').hide();
-  }
+  sortOnLoad: true,
+  sorters: { property: 'name', direction: 'ASC' }
 
 });

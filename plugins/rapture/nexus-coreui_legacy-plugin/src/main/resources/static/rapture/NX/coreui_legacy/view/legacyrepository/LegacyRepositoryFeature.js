@@ -13,11 +13,11 @@
 /*global Ext, NX*/
 
 /**
- * Repository feature panel.
+ * Legacy repository feature panel.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.repository.RepositoryFeature', {
+Ext.define('NX.coreui_legacy.view.repository.LegacyRepositoryFeature', {
   extend: 'NX.view.drilldown.Drilldown',
   alias: 'widget.nx-coreui_legacy-repository-feature',
   requires: [

@@ -13,11 +13,11 @@
 /*global Ext, NX*/
 
 /**
- * Repository "Settings" form.
+ * Legacy repository "Settings" form.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsForm', {
+Ext.define('NX.coreui_legacy.view.legacyrepository.LegacyRepositorySettingsForm', {
   extend: 'NX.view.SettingsForm',
   alias: 'widget.nx-coreui_legacy-repository-settings-form',
   requires: [

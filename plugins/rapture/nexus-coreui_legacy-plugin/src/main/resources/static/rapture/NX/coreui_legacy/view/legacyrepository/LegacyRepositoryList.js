@@ -13,18 +13,18 @@
 /*global Ext, NX*/
 
 /**
- * Repository grid.
+ * Legacy repository grid.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.repository.RepositoryList', {
+Ext.define('NX.coreui_legacy.view.repository.LegacyRepositoryList', {
   extend: 'NX.view.drilldown.Master',
   alias: 'widget.nx-coreui_legacy-repository-list',
   requires: [
     'NX.I18n'
   ],
 
-  store: 'Repository',
+  store: 'LegacyRepository',
 
   /*
    * @override

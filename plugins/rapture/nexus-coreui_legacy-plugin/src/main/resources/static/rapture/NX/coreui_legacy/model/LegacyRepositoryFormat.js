@@ -13,34 +13,14 @@
 /*global Ext, NX*/
 
 /**
- * Add virtual repository window.
+ * Legacy repository format model.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.repository.RepositoryAddVirtual', {
-  extend: 'NX.coreui_legacy.view.repository.RepositoryAdd',
-  alias: 'widget.nx-repository-add-virtual',
-  requires: [
-    'NX.I18n'
-  ],
-
-  initComponent: function() {
-    var me = this;
-
-    me.items = {
-      xtype: 'nx-repository-settings-virtual-form',
-      template: me.template,
-      api: {
-        submit: 'NX.direct.coreui_legacy_Repository.createVirtual'
-      },
-      settingsFormSuccessMessage: function(data) {
-        return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_CREATE_VIRTUAL_SUCCESS') + data['id'];
-      }
-    };
-
-    me.callParent(arguments);
-
-    me.down('#shadowOf').setReadOnly(false);
-  }
-
+Ext.define('NX.coreui_legacy.model.LegacyRepositoryFormat', {
+  extend: 'Ext.data.Model',
+  fields: [
+    'id',
+    'name'
+  ]
 });

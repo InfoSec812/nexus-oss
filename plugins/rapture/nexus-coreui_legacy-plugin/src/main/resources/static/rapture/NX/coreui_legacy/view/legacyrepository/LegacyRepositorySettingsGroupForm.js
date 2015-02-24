@@ -13,43 +13,35 @@
 /*global Ext, NX*/
 
 /**
- * Hosted repository "Settings" form.
+ * Legacy repository group "Settings" form.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsHostedForm', {
-  extend: 'NX.coreui_legacy.view.repository.RepositorySettingsForm',
-  alias: 'widget.nx-repository-settings-hosted-form',
+Ext.define('NX.coreui_legacy.view.legacyrepository.LegacyRepositorySettingsGroupForm', {
+  extend: 'NX.coreui_legacy.view.legacyrepository.LegacyRepositorySettingsForm',
+  alias: 'widget.nx-repository-settings-group-form',
   requires: [
+    'NX.coreui_legacy.store.LegacyRepositoryReference',
     'NX.I18n'
   ],
 
   api: {
-    submit: 'NX.direct.coreui_legacy_Repository.updateHosted'
+    submit: 'NX.direct.coreui_legacy_Repository.updateGroup'
   },
   settingsFormSuccessMessage: function(data) {
-    return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_UPDATE_SUCCESS') + data['id'];
+    return 'Repository updated: ' + data['id'];
   },
 
   initComponent: function() {
     var me = this;
 
+    me.repositoryStore = Ext.create('NX.coreui_legacy.store.LegacyRepositoryReference', { remoteFilter: true });
+    me.repositoryStore.filter([
+      { property: 'format', value: me.template.format },
+      { property: 'includeNexusManaged', value: 'true' }
+    ]);
+
     me.items = [
-      { xtype: 'nx-coreui_legacy-repository-settings-localstorage' },
-      {
-        xtype: 'combo',
-        name: 'writePolicy',
-        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT'),
-        helpText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT_HELP'),
-        emptyText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT_PLACEHOLDER'),
-        editable: false,
-        store: [
-          ['ALLOW_WRITE', NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT_ALLOW_ITEM')],
-          ['ALLOW_WRITE_ONCE', NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT_DISABLE_ITEM')],
-          ['READ_ONLY', NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_DEPLOYMENT_RO_ITEM')]
-        ],
-        queryMode: 'local'
-      },
       {
         xtype: 'checkbox',
         name: 'browseable',
@@ -61,6 +53,19 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsHostedForm', {
         name: 'exposed',
         fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_PUBLISH'),
         value: true
+      },
+      {
+        xtype: 'nx-itemselector',
+        name: 'memberRepositoryIds',
+        fieldLabel: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_MEMBERS'),
+        helpText: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_MEMBERS_HELP'),
+        buttons: ['up', 'add', 'remove', 'down'],
+        fromTitle: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_MEMBERS_FROM'),
+        toTitle: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SETTINGS_MEMBERS_TO'),
+        store: me.repositoryStore,
+        valueField: 'id',
+        displayField: 'name',
+        delimiter: null
       }
     ];
 

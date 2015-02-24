@@ -17,7 +17,7 @@
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsCommon', {
+Ext.define('NX.coreui_legacy.view.legacyrepository.LegacyRepositorySettingsCommon', {
   extend: 'Ext.form.FieldContainer',
   alias: 'widget.nx-coreui_legacy-repository-settings-common',
   requires: [

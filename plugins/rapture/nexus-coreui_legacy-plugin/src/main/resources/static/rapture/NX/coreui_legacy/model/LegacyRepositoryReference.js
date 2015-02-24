@@ -13,29 +13,16 @@
 /*global Ext, NX*/
 
 /**
- * Repository store.
+ * Legacy repository reference model.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.store.Repository', {
-  extend: 'Ext.data.Store',
-  model: 'NX.coreui_legacy.model.Repository',
-
-  proxy: {
-    type: 'direct',
-
-    api: {
-      read: 'NX.direct.coreui_legacy_Repository.read'
-    },
-
-    reader: {
-      type: 'json',
-      root: 'data',
-      idProperty: 'id',
-      successProperty: 'success'
-    }
-  },
-
-  sortOnLoad: true,
-  sorters: { property: 'name', direction: 'ASC' }
+Ext.define('NX.coreui_legacy.model.LegacyRepositoryReference', {
+  extend: 'Ext.data.Model',
+  fields: [
+    'id',
+    'name',
+    'type',
+    'format'
+  ]
 });

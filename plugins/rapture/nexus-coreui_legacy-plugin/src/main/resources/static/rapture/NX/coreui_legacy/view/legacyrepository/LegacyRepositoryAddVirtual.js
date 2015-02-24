@@ -13,43 +13,34 @@
 /*global Ext, NX*/
 
 /**
- * Add repository window.
+ * Add virtual repository window.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.repository.RepositoryAdd', {
-  extend: 'NX.view.AddWindow',
-  alias: 'widget.nx-coreui_legacy-repository-add',
+Ext.define('NX.coreui_legacy.view.legacyrepository.LegacyRepositoryAddVirtual', {
+  extend: 'NX.coreui_legacy.view.legacyrepository.LegacyRepositoryAdd',
+  alias: 'widget.nx-repository-add-virtual',
   requires: [
-    'NX.Conditions',
     'NX.I18n'
   ],
-  ui: 'nx-inset',
 
-  editableMarker: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_CREATE_ERROR'),
-
-  defaultFocus: 'id',
-
-  initComponent: function () {
+  initComponent: function() {
     var me = this;
 
-    me.editableCondition = NX.Conditions.isPermitted('nexus:repositories', 'create');
-
-    me.items.buttons = [
-      { text: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_NEW_BUTTON'), action: 'add', formBind: true, ui: 'nx-primary' },
-      { text: NX.I18n.get('GLOBAL_DIALOG_ADD_CANCEL_BUTTON'), handler: function () {
-        this.up('nx-drilldown').showChild(0, true);
-      }}
-    ];
+    me.items = {
+      xtype: 'nx-repository-settings-virtual-form',
+      template: me.template,
+      api: {
+        submit: 'NX.direct.coreui_legacy_Repository.createVirtual'
+      },
+      settingsFormSuccessMessage: function(data) {
+        return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_CREATE_VIRTUAL_SUCCESS') + data['id'];
+      }
+    };
 
     me.callParent(arguments);
 
-    me.down('#id').setReadOnly(false);
-
-    me.down('form').add({
-      xtype: 'hiddenfield',
-      name: 'template',
-      value: me.template.id
-    });
+    me.down('#shadowOf').setReadOnly(false);
   }
+
 });

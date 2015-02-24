@@ -13,14 +13,29 @@
 /*global Ext, NX*/
 
 /**
- * Repository format model.
+ * Select repository template window.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.model.RepositoryFormat', {
-  extend: 'Ext.data.Model',
-  fields: [
-    'id',
-    'name'
+Ext.define('NX.coreui_legacy.view.repository.LegacyRepositorySelectTemplate', {
+  extend: 'NX.view.drilldown.Master',
+  alias: 'widget.nx-coreui_legacy-repository-selecttemplate',
+  requires: [
+    'NX.I18n'
+  ],
+
+  store: 'LegacyRepositoryTemplate',
+  columns: [
+    {
+      xtype: 'nx-iconcolumn',
+      width: 36,
+      iconVariant: 'x16',
+      iconName: function() {
+        return 'repository-default';
+      }
+    },
+    { header: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SELECT_PROVIDER_COLUMN'), dataIndex: 'providerName', flex: 2 },
+    { header: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SELECT_TYPE_COLUMN'), dataIndex: 'type', flex: 1 }
   ]
+
 });

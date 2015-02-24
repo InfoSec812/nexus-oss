@@ -13,30 +13,32 @@
 /*global Ext, NX*/
 
 /**
- * Repository format store.
+ * Add repository group window.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.store.RepositoryFormat', {
-  extend: 'Ext.data.Store',
-  model: 'NX.coreui_legacy.model.RepositoryFormat',
+Ext.define('NX.coreui_legacy.view.legacyrepository.LegacyRepositoryAddGroup', {
+  extend: 'NX.coreui_legacy.view.legacyrepository.LegacyRepositoryAdd',
+  alias: 'widget.nx-repository-add-group',
+  requires: [
+    'NX.I18n'
+  ],
 
-  proxy: {
-    type: 'direct',
-    paramsAsHash: false,
+  initComponent: function() {
+    var me = this;
 
-    api: {
-      read: 'NX.direct.coreui_legacy_Repository.readFormats'
-    },
+    me.items = {
+      xtype: 'nx-repository-settings-group-form',
+      template: me.template,
+      api: {
+        submit: 'NX.direct.coreui_legacy_Repository.createGroup'
+      },
+      settingsFormSuccessMessage: function(data) {
+        return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_CREATE_GROUP_SUCCESS') + data['id'];
+      }
+    };
 
-    reader: {
-      type: 'json',
-      root: 'data',
-      idProperty: 'id',
-      successProperty: 'success'
-    }
-  },
+    me.callParent(arguments);
+  }
 
-  sortOnLoad: true,
-  sorters: { property: 'name', direction: 'ASC' }
 });
