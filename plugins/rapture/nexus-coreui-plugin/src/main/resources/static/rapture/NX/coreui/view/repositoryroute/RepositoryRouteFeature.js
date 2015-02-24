@@ -13,27 +13,24 @@
 /*global Ext, NX*/
 
 /**
- * CoreUi plugin configuration.
+ * Repository Route feature panel.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.app.PluginConfig', {
-  '@aggregate_priority': 100,
-
-  namespaces: [
-    'NX.coreui_legacy'
-  ],
-
+Ext.define('NX.coreui.view.repositoryroute.RepositoryRouteFeature', {
+  extend: 'NX.view.drilldown.Drilldown',
+  alias: 'widget.nx-coreui-repositoryroute-feature',
   requires: [
-    'NX.coreui_legacy.app.PluginStrings'
+    'NX.I18n'
   ],
 
-  controllers: [
-    {
-      id: 'NX.coreui_legacy.controller.LegacyRepositories',
-      active: function () {
-        return NX.app.Application.pluginActive('org.sonatype.nexus.plugins:nexus-coreui_legacy-plugin');
-      }
-    }
+  iconName: 'repositoryroute-default',
+
+  masters: { xtype: 'nx-coreui-repositoryroute-list' },
+
+  tabs: { xtype: 'nx-coreui-repositoryroute-settings' },
+
+  actions: [
+    { xtype: 'button', text: NX.I18n.get('LEGACY_ADMIN_ROUTING_DETAILS_DELETE_BUTTON'), glyph: 'xf056@FontAwesome' /* fa-minus-circle */, action: 'delete', disabled: true }
   ]
 });

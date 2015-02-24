@@ -13,27 +13,18 @@
 /*global Ext, NX*/
 
 /**
- * CoreUi plugin configuration.
+ * Repository target "Settings" panel.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.app.PluginConfig', {
-  '@aggregate_priority': 100,
-
-  namespaces: [
-    'NX.coreui_legacy'
-  ],
-
+Ext.define('NX.coreui.view.repositorytarget.RepositoryTargetSettings', {
+  extend: 'NX.view.SettingsPanel',
+  alias: 'widget.nx-coreui-repositorytarget-settings',
   requires: [
-    'NX.coreui_legacy.app.PluginStrings'
+    'NX.I18n'
   ],
 
-  controllers: [
-    {
-      id: 'NX.coreui_legacy.controller.LegacyRepositories',
-      active: function () {
-        return NX.app.Application.pluginActive('org.sonatype.nexus.plugins:nexus-coreui_legacy-plugin');
-      }
-    }
-  ]
+  title: NX.I18n.get('LEGACY_ADMIN_TARGETS_DETAILS_SETTINGS_TAB'),
+
+  items: { xtype: 'nx-coreui-repositorytarget-settings-form' }
 });

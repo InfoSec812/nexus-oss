@@ -13,27 +13,30 @@
 /*global Ext, NX*/
 
 /**
- * CoreUi plugin configuration.
+ * Repository Route store.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.app.PluginConfig', {
-  '@aggregate_priority': 100,
+Ext.define('NX.coreui.store.RepositoryRoute', {
+  extend: 'Ext.data.Store',
+  model: 'NX.coreui.model.RepositoryRoute',
 
-  namespaces: [
-    'NX.coreui_legacy'
-  ],
+  proxy: {
+    type: 'direct',
+    paramsAsHash: false,
 
-  requires: [
-    'NX.coreui_legacy.app.PluginStrings'
-  ],
+    api: {
+      read: 'NX.direct.coreui_RepositoryRoute.read'
+    },
 
-  controllers: [
-    {
-      id: 'NX.coreui_legacy.controller.LegacyRepositories',
-      active: function () {
-        return NX.app.Application.pluginActive('org.sonatype.nexus.plugins:nexus-coreui_legacy-plugin');
-      }
+    reader: {
+      type: 'json',
+      root: 'data',
+      idProperty: 'id',
+      successProperty: 'success'
     }
-  ]
+  },
+
+  sortOnLoad: true,
+  sorters: { property: 'pattern', direction: 'ASC' }
 });

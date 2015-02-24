@@ -33,11 +33,13 @@ Ext.define('NX.coreui_legacy.controller.LegacyRepositories', {
   masters: 'nx-coreui_legacy-repository-list',
 
   models: [
-    'LegacyRepository'
+    'LegacyRepository',
+    'NX.coreui.model.SearchResult'
   ],
   stores: [
     'LegacyRepository',
-    'RepositoryTemplate'
+    'RepositoryTemplate',
+    'NX.coreui.store.SearchResult'
   ],
   views: [
     'legacyrepository.LegacyRepositoryAdd',

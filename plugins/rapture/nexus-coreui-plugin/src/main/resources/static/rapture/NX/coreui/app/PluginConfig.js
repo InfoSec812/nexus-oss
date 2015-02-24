@@ -138,7 +138,39 @@ Ext.define('NX.coreui.app.PluginConfig', {
       }
     },
     {
+      id: 'NX.coreui.controller.HealthCheckRepositorySettings',
+      active: function () {
+        return NX.app.Application.pluginActive('com.sonatype.nexus.plugins:nexus-healthcheck-oss-plugin')
+          || NX.app.Application.pluginActive('com.sonatype.nexus.plugins:nexus-clm-plugin');
+      }
+    },
+    {
+      id: 'NX.coreui.controller.HealthCheckRepositoryColumn',
+      active: function () {
+        return NX.app.Application.pluginActive('com.sonatype.nexus.plugins:nexus-healthcheck-oss-plugin')
+            || NX.app.Application.pluginActive('com.sonatype.nexus.plugins:nexus-clm-plugin');
+      }
+    },
+    {
       id: 'NX.coreui.controller.Repositories',
+      active: function () {
+        return NX.app.Application.pluginActive('org.sonatype.nexus.plugins:nexus-coreui-plugin');
+      }
+    },
+    {
+      id: 'NX.coreui.controller.RepositoryTargets',
+      active: function () {
+        return NX.app.Application.pluginActive('org.sonatype.nexus.plugins:nexus-coreui-plugin');
+      }
+    },
+    {
+      id: 'NX.coreui.controller.RepositoryRoutes',
+      active: function () {
+        return NX.app.Application.pluginActive('org.sonatype.nexus.plugins:nexus-coreui-plugin');
+      }
+    },
+    {
+      id: 'NX.coreui.controller.RoutingRepositorySettings',
       active: function () {
         return NX.app.Application.pluginActive('org.sonatype.nexus.plugins:nexus-coreui-plugin');
       }

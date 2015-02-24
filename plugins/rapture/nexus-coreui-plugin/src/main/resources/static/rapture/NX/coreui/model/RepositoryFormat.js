@@ -13,27 +13,14 @@
 /*global Ext, NX*/
 
 /**
- * CoreUi plugin configuration.
+ * Repository format model.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.app.PluginConfig', {
-  '@aggregate_priority': 100,
-
-  namespaces: [
-    'NX.coreui_legacy'
-  ],
-
-  requires: [
-    'NX.coreui_legacy.app.PluginStrings'
-  ],
-
-  controllers: [
-    {
-      id: 'NX.coreui_legacy.controller.LegacyRepositories',
-      active: function () {
-        return NX.app.Application.pluginActive('org.sonatype.nexus.plugins:nexus-coreui_legacy-plugin');
-      }
-    }
+Ext.define('NX.coreui.model.RepositoryFormat', {
+  extend: 'Ext.data.Model',
+  fields: [
+    'id',
+    'name'
   ]
 });

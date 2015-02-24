@@ -10,30 +10,29 @@
  * of Sonatype, Inc. Apache Maven is a trademark of the Apache Software Foundation. M2eclipse is a trademark of the
  * Eclipse Foundation. All other trademarks are the property of their respective owners.
  */
-/*global Ext, NX*/
+package org.sonatype.nexus.coreui
+
+import groovy.transform.ToString
+import org.hibernate.validator.constraints.NotEmpty
+import org.sonatype.nexus.common.validation.Update
 
 /**
- * CoreUi plugin configuration.
+ * Repository Target exchange object.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.app.PluginConfig', {
-  '@aggregate_priority': 100,
+@ToString(includePackage = false, includeNames = true)
+class RepositoryTargetXO
+{
+  @NotEmpty(groups = Update.class)
+  String id
 
-  namespaces: [
-    'NX.coreui_legacy'
-  ],
+  @NotEmpty
+  String name
 
-  requires: [
-    'NX.coreui_legacy.app.PluginStrings'
-  ],
+  @NotEmpty
+  String format
 
-  controllers: [
-    {
-      id: 'NX.coreui_legacy.controller.LegacyRepositories',
-      active: function () {
-        return NX.app.Application.pluginActive('org.sonatype.nexus.plugins:nexus-coreui_legacy-plugin');
-      }
-    }
-  ]
-});
+  @NotEmpty
+  List<String> patterns
+}
