@@ -17,7 +17,7 @@
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.repository.LegacyRepositorySelectTemplate', {
+Ext.define('NX.coreui_legacy.view.legacyrepository.LegacyRepositorySelectTemplate', {
   extend: 'NX.view.drilldown.Master',
   alias: 'widget.nx-coreui_legacy-repository-selecttemplate',
   requires: [

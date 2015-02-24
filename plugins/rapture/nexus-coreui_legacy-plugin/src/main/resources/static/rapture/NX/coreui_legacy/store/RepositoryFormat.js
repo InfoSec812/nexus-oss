@@ -13,13 +13,13 @@
 /*global Ext, NX*/
 
 /**
- * Legacy repository format store.
+ * Repository format store.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.store.LegacyRepositoryFormat', {
+Ext.define('NX.coreui_legacy.store.RepositoryFormat', {
   extend: 'Ext.data.Store',
-  model: 'NX.coreui_legacy.model.LegacyRepositoryFormat',
+  model: 'NX.coreui_legacy.model.RepositoryFormat',
 
   proxy: {
     type: 'direct',

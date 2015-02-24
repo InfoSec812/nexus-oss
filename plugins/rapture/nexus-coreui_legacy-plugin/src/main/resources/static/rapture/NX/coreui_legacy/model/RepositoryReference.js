@@ -13,11 +13,11 @@
 /*global Ext, NX*/
 
 /**
- * Legacy repository reference model.
+ * Repository reference model.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.model.LegacyRepositoryReference', {
+Ext.define('NX.coreui_legacy.model.RepositoryReference', {
   extend: 'Ext.data.Model',
   fields: [
     'id',

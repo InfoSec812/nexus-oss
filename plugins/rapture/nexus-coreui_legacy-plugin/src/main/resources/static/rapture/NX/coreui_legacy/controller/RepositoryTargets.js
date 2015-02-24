@@ -33,7 +33,7 @@ Ext.define('NX.coreui_legacy.controller.RepositoryTargets', {
   ],
   stores: [
     'RepositoryTarget',
-    'LegacyRepositoryFormat'
+    'RepositoryFormat'
   ],
   views: [
     'repositorytarget.RepositoryTargetAdd',

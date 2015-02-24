@@ -17,7 +17,7 @@
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.repository.LegacyRepositoryFeature', {
+Ext.define('NX.coreui_legacy.view.legacyrepository.LegacyRepositoryFeature', {
   extend: 'NX.view.drilldown.Drilldown',
   alias: 'widget.nx-coreui_legacy-repository-feature',
   requires: [

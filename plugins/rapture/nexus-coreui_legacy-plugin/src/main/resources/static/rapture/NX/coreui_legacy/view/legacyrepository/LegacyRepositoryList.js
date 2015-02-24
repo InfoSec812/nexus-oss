@@ -17,7 +17,7 @@
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.repository.LegacyRepositoryList', {
+Ext.define('NX.coreui_legacy.view.legacyrepository.LegacyRepositoryList', {
   extend: 'NX.view.drilldown.Master',
   alias: 'widget.nx-coreui_legacy-repository-list',
   requires: [

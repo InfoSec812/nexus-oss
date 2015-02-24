@@ -17,7 +17,7 @@
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.repository.LegacyRepositoryAdd', {
+Ext.define('NX.coreui_legacy.view.legacyrepository.LegacyRepositoryAdd', {
   extend: 'NX.view.AddWindow',
   alias: 'widget.nx-coreui_legacy-repository-add',
   requires: [
