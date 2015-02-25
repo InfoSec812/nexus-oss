@@ -17,7 +17,7 @@
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.legacyrepository.LegacyRepositorySettingsLocalStorage', {
+Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsLocalStorage', {
   extend: 'Ext.form.FieldContainer',
   alias: 'widget.nx-coreui_legacy-repository-settings-localstorage',
   requires: [

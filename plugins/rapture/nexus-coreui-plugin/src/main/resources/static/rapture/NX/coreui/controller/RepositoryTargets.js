@@ -56,8 +56,8 @@ Ext.define('NX.coreui.controller.RepositoryTargets', {
   features: {
     mode: 'admin',
     path: '/Repository/Targets',
-    text: NX.I18n.get('LEGACY_ADMIN_TARGETS_TITLE'),
-    description: NX.I18n.get('LEGACY_ADMIN_TARGETS_SUBTITLE'),
+    text: NX.I18n.get('ADMIN_TARGETS_TITLE'),
+    description: NX.I18n.get('ADMIN_TARGETS_SUBTITLE'),
     view: { xtype: 'nx-coreui-repositorytarget-feature' },
     iconConfig: {
       file: 'target.png',
@@ -128,7 +128,7 @@ Ext.define('NX.coreui.controller.RepositoryTargets', {
       feature = me.getFeature();
 
     // Show the first panel in the create wizard, and set the breadcrumb
-    feature.setItemName(1, NX.I18n.get('LEGACY_ADMIN_TARGETS_CREATE_TITLE'));
+    feature.setItemName(1, NX.I18n.get('ADMIN_TARGETS_CREATE_TITLE'));
     me.loadCreateWizard(1, true, Ext.create('widget.nx-coreui-repositorytarget-add'));
   },
 

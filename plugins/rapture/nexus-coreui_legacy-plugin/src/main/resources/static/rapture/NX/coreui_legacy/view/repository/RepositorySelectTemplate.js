@@ -13,32 +13,29 @@
 /*global Ext, NX*/
 
 /**
- * Add hosted repository window.
+ * Select repository template window.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.legacyrepository.LegacyRepositoryAddHosted', {
-  extend: 'NX.coreui_legacy.view.legacyrepository.LegacyRepositoryAdd',
-  alias: 'widget.nx-repository-add-hosted',
+Ext.define('NX.coreui_legacy.view.repository.RepositorySelectTemplate', {
+  extend: 'NX.view.drilldown.Master',
+  alias: 'widget.nx-coreui_legacy-repository-selecttemplate',
   requires: [
     'NX.I18n'
   ],
 
-  initComponent: function() {
-    var me = this;
-
-    me.items = {
-      xtype: 'nx-repository-settings-hosted-form',
-      template: me.template,
-      api: {
-        submit: 'NX.direct.coreui_legacy_Repository.createHosted'
-      },
-      settingsFormSuccessMessage: function(data) {
-        return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_CREATE_HOSTED_SUCCESS') + data['id'];
+  store: 'RepositoryTemplate',
+  columns: [
+    {
+      xtype: 'nx-iconcolumn',
+      width: 36,
+      iconVariant: 'x16',
+      iconName: function() {
+        return 'repository-default';
       }
-    };
-
-    me.callParent(arguments);
-  }
+    },
+    { header: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SELECT_PROVIDER_COLUMN'), dataIndex: 'providerName', flex: 2 },
+    { header: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SELECT_TYPE_COLUMN'), dataIndex: 'type', flex: 1 }
+  ]
 
 });

@@ -29,10 +29,10 @@ Ext.define('NX.coreui.view.repositorytarget.RepositoryTargetSettingsForm', {
     submit: 'NX.direct.coreui_RepositoryTarget.update'
   },
   settingsFormSuccessMessage: function(data) {
-    return NX.I18n.get('LEGACY_ADMIN_TARGETS_UPDATE_SUCCESS') + data['name'];
+    return NX.I18n.get('ADMIN_TARGETS_UPDATE_SUCCESS') + data['name'];
   },
 
-  editableMarker: NX.I18n.get('LEGACY_ADMIN_TARGETS_UPDATE_ERROR'),
+  editableMarker: NX.I18n.get('ADMIN_TARGETS_UPDATE_ERROR'),
 
   initComponent: function() {
     var me = this;
@@ -48,14 +48,14 @@ Ext.define('NX.coreui.view.repositorytarget.RepositoryTargetSettingsForm', {
         xtype: 'textfield',
         name: 'name',
         itemId: 'name',
-        fieldLabel: NX.I18n.get('LEGACY_ADMIN_TARGETS_SETTINGS_NAME')
+        fieldLabel: NX.I18n.get('ADMIN_TARGETS_SETTINGS_NAME')
       },
       {
         xtype: 'combo',
         name: 'format',
-        fieldLabel: NX.I18n.get('LEGACY_ADMIN_TARGETS_SETTINGS_TYPE'),
-        helpText: NX.I18n.get('LEGACY_ADMIN_TARGETS_SETTINGS_TYPE_HELP'),
-        emptyText: NX.I18n.get('LEGACY_ADMIN_TARGETS_SETTINGS_TYPE_PLACEHOLDER'),
+        fieldLabel: NX.I18n.get('ADMIN_TARGETS_SETTINGS_TYPE'),
+        helpText: NX.I18n.get('ADMIN_TARGETS_SETTINGS_TYPE_HELP'),
+        emptyText: NX.I18n.get('ADMIN_TARGETS_SETTINGS_TYPE_PLACEHOLDER'),
         editable: false,
         store: 'RepositoryFormat',
         queryMode: 'local',
@@ -66,9 +66,9 @@ Ext.define('NX.coreui.view.repositorytarget.RepositoryTargetSettingsForm', {
         xtype: 'nx-valueset',
         name: 'patterns',
         itemId: 'patterns',
-        fieldLabel: NX.I18n.get('LEGACY_ADMIN_TARGETS_SETTINGS_PATTERNS'),
-        helpText: NX.I18n.get('LEGACY_ADMIN_TARGETS_SETTINGS_PATTERNS_HELP'),
-        emptyText: NX.I18n.get('LEGACY_ADMIN_TARGETS_SETTINGS_PATTERNS_PLACEHOLDER'),
+        fieldLabel: NX.I18n.get('ADMIN_TARGETS_SETTINGS_PATTERNS'),
+        helpText: NX.I18n.get('ADMIN_TARGETS_SETTINGS_PATTERNS_HELP'),
+        emptyText: NX.I18n.get('ADMIN_TARGETS_SETTINGS_PATTERNS_PLACEHOLDER'),
         input: {
           xtype: 'nx-regexp'
         },

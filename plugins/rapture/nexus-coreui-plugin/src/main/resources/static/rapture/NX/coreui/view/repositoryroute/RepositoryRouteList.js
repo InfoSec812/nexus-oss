@@ -35,27 +35,27 @@ Ext.define('NX.coreui.view.repositoryroute.RepositoryRouteList', {
         return 'repositoryroute-default';
       }
     },
-    { header: NX.I18n.get('LEGACY_ADMIN_ROUTING_LIST_ROUTE_COLUMN'), dataIndex: 'pattern', flex: 1 },
-    { header: NX.I18n.get('LEGACY_ADMIN_ROUTING_LIST_RULE_COLUMN'), dataIndex: 'mappingType', renderer: function (val) {
+    { header: NX.I18n.get('ADMIN_ROUTING_LIST_ROUTE_COLUMN'), dataIndex: 'pattern', flex: 1 },
+    { header: NX.I18n.get('ADMIN_ROUTING_LIST_RULE_COLUMN'), dataIndex: 'mappingType', renderer: function (val) {
       return {
-        BLOCKING: NX.I18n.get('LEGACY_ADMIN_ROUTING_SETTINGS_BLOCKING_ITEM'),
-        INCLUSION: NX.I18n.get('LEGACY_ADMIN_ROUTING_SETTINGS_INCLUSIVE_ITEM'),
-        EXCLUSION: NX.I18n.get('LEGACY_ADMIN_ROUTING_SETTINGS_EXCLUSIVE_ITEM')
+        BLOCKING: NX.I18n.get('ADMIN_ROUTING_SETTINGS_BLOCKING_ITEM'),
+        INCLUSION: NX.I18n.get('ADMIN_ROUTING_SETTINGS_INCLUSIVE_ITEM'),
+        EXCLUSION: NX.I18n.get('ADMIN_ROUTING_SETTINGS_EXCLUSIVE_ITEM')
       }[val];
     }},
-    { header: NX.I18n.get('LEGACY_ADMIN_ROUTING_LIST_GROUP_COLUMN'), dataIndex: 'groupName' },
-    { header: NX.I18n.get('LEGACY_ADMIN_ROUTING_LIST_REPOSITORIES_COLUMN'), dataIndex: 'mappedRepositoriesNames', flex: 1 }
+    { header: NX.I18n.get('ADMIN_ROUTING_LIST_GROUP_COLUMN'), dataIndex: 'groupName' },
+    { header: NX.I18n.get('ADMIN_ROUTING_LIST_REPOSITORIES_COLUMN'), dataIndex: 'mappedRepositoriesNames', flex: 1 }
   ],
 
   viewConfig: {
-    emptyText: NX.I18n.get('LEGACY_ADMIN_ROUTING_LIST_EMPTY_STATE'),
+    emptyText: NX.I18n.get('ADMIN_ROUTING_LIST_EMPTY_STATE'),
     deferEmptyText: false
   },
 
   tbar: [
-    { xtype: 'button', text: NX.I18n.get('LEGACY_ADMIN_ROUTING_LIST_NEW_BUTTON'), glyph: 'xf055@FontAwesome' /* fa-plus-circle */, action: 'new', disabled: true }
+    { xtype: 'button', text: NX.I18n.get('ADMIN_ROUTING_LIST_NEW_BUTTON'), glyph: 'xf055@FontAwesome' /* fa-plus-circle */, action: 'new', disabled: true }
   ],
 
-  plugins: [{ ptype: 'gridfilterbox', emptyText: NX.I18n.get('LEGACY_ADMIN_ROUTING_LIST_FILTER_ERROR') }]
+  plugins: [{ ptype: 'gridfilterbox', emptyText: NX.I18n.get('ADMIN_ROUTING_LIST_FILTER_ERROR') }]
 
 });

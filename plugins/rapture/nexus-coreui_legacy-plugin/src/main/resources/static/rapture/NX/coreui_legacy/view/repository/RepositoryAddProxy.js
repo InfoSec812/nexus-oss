@@ -13,13 +13,13 @@
 /*global Ext, NX*/
 
 /**
- * Add maven hosted repository window.
+ * Add proxy repository window.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.legacyrepository.LegacyRepositoryAddHostedMaven', {
-  extend: 'NX.coreui_legacy.view.legacyrepository.LegacyRepositoryAdd',
-  alias: ['widget.nx-repository-add-hosted-maven1', 'widget.nx-repository-add-hosted-maven2'],
+Ext.define('NX.coreui_legacy.view.repository.RepositoryAddProxy', {
+  extend: 'NX.coreui_legacy.view.repository.RepositoryAdd',
+  alias: 'widget.nx-repository-add-proxy',
   requires: [
     'NX.I18n'
   ],
@@ -28,19 +28,17 @@ Ext.define('NX.coreui_legacy.view.legacyrepository.LegacyRepositoryAddHostedMave
     var me = this;
 
     me.items = {
-      xtype: 'nx-repository-settings-hosted-maven2-form',
+      xtype: 'nx-repository-settings-proxy-form',
       template: me.template,
       api: {
-        submit: 'NX.direct.coreui_legacy_Repository.createHostedMaven'
+        submit: 'NX.direct.coreui_legacy_Repository.createProxy'
       },
       settingsFormSuccessMessage: function(data) {
-        return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_CREATE_MAVEN_SUCCESS') + data['id'];
+        return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_CREATE_PROXY_SUCCESS') + data['id'];
       }
     };
 
     me.callParent(arguments);
-
-    me.down('#repositoryPolicy').hide();
   }
 
 });

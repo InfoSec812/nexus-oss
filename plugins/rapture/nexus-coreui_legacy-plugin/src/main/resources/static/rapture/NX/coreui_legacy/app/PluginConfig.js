@@ -30,7 +30,7 @@ Ext.define('NX.coreui_legacy.app.PluginConfig', {
 
   controllers: [
     {
-      id: 'NX.coreui_legacy.controller.LegacyRepositories',
+      id: 'NX.coreui_legacy.controller.Repositories',
       active: function () {
         return NX.app.Application.pluginActive('org.sonatype.nexus.plugins:nexus-coreui_legacy-plugin');
       }

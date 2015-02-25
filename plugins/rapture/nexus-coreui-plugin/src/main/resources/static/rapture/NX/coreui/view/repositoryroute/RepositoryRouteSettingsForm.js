@@ -31,9 +31,9 @@ Ext.define('NX.coreui.view.repositoryroute.RepositoryRouteSettingsForm', {
     submit: 'NX.direct.coreui_RepositoryRoute.update'
   },
   settingsFormSuccessMessage: function(data) {
-    return NX.I18n.get('LEGACY_ADMIN_ROUTING_UPDATE_SUCCESS') + data['pattern'];
+    return NX.I18n.get('ADMIN_ROUTING_UPDATE_SUCCESS') + data['pattern'];
   },
-  editableMarker: NX.I18n.get('LEGACY_ADMIN_ROUTING_UPDATE_ERROR'),
+  editableMarker: NX.I18n.get('ADMIN_ROUTING_UPDATE_ERROR'),
 
   models: [
     'Reference'
@@ -46,7 +46,7 @@ Ext.define('NX.coreui.view.repositoryroute.RepositoryRouteSettingsForm', {
 
     me.groupStore = Ext.create('NX.coreui.store.RepositoryReference', { remoteFilter: true });
     me.mon(me.groupStore, 'load', function(store) {
-      store.add(Ext.create('NX.coreui.model.Reference', { id: '*', name: NX.I18n.get('LEGACY_ADMIN_ROUTING_SETTINGS_GROUP_ALL_ITEM') }));
+      store.add(Ext.create('NX.coreui.model.Reference', { id: '*', name: NX.I18n.get('ADMIN_ROUTING_SETTINGS_GROUP_ALL_ITEM') }));
     });
     me.groupStore.filter({ property: 'type', value: 'group' });
 
@@ -62,21 +62,21 @@ Ext.define('NX.coreui.view.repositoryroute.RepositoryRouteSettingsForm', {
         xtype: 'nx-regexp',
         name: 'pattern',
         itemId: 'pattern',
-        fieldLabel: NX.I18n.get('LEGACY_ADMIN_ROUTING_SETTINGS_URL'),
-        helpText: NX.I18n.get('LEGACY_ADMIN_ROUTING_SETTINGS_URL_HELP'),
-        emptyText: NX.I18n.get('LEGACY_ADMIN_ROUTING_SETTINGS_URL_PLACEHOLDER')
+        fieldLabel: NX.I18n.get('ADMIN_ROUTING_SETTINGS_URL'),
+        helpText: NX.I18n.get('ADMIN_ROUTING_SETTINGS_URL_HELP'),
+        emptyText: NX.I18n.get('ADMIN_ROUTING_SETTINGS_URL_PLACEHOLDER')
       },
       {
         xtype: 'combo',
         name: 'mappingType',
         itemId: 'mappingType',
-        fieldLabel: NX.I18n.get('LEGACY_ADMIN_ROUTING_SETTINGS_RULE'),
-        emptyText: NX.I18n.get('LEGACY_ADMIN_ROUTING_SETTINGS_RULE_PLACEHOLDER'),
+        fieldLabel: NX.I18n.get('ADMIN_ROUTING_SETTINGS_RULE'),
+        emptyText: NX.I18n.get('ADMIN_ROUTING_SETTINGS_RULE_PLACEHOLDER'),
         editable: false,
         store: [
-          ['BLOCKING', NX.I18n.get('LEGACY_ADMIN_ROUTING_SETTINGS_BLOCKING_ITEM')],
-          ['INCLUSION', NX.I18n.get('LEGACY_ADMIN_ROUTING_SETTINGS_INCLUSIVE_ITEM')],
-          ['EXCLUSION', NX.I18n.get('LEGACY_ADMIN_ROUTING_SETTINGS_EXCLUSIVE_ITEM')]
+          ['BLOCKING', NX.I18n.get('ADMIN_ROUTING_SETTINGS_BLOCKING_ITEM')],
+          ['INCLUSION', NX.I18n.get('ADMIN_ROUTING_SETTINGS_INCLUSIVE_ITEM')],
+          ['EXCLUSION', NX.I18n.get('ADMIN_ROUTING_SETTINGS_EXCLUSIVE_ITEM')]
         ],
         queryMode: 'local'
       },
@@ -84,8 +84,8 @@ Ext.define('NX.coreui.view.repositoryroute.RepositoryRouteSettingsForm', {
         xtype: 'combo',
         name: 'groupId',
         itemId: 'groupId',
-        fieldLabel: NX.I18n.get('LEGACY_ADMIN_ROUTING_SETTINGS_GROUP'),
-        emptyText: NX.I18n.get('LEGACY_ADMIN_ROUTING_SETTINGS_GROUP_PLACEHOLDER'),
+        fieldLabel: NX.I18n.get('ADMIN_ROUTING_SETTINGS_GROUP'),
+        emptyText: NX.I18n.get('ADMIN_ROUTING_SETTINGS_GROUP_PLACEHOLDER'),
         editable: false,
         store: me.groupStore,
         queryMode: 'local',
@@ -96,11 +96,11 @@ Ext.define('NX.coreui.view.repositoryroute.RepositoryRouteSettingsForm', {
         xtype: 'nx-itemselector',
         name: 'mappedRepositoriesIds',
         itemId: 'mappedRepositoriesIds',
-        fieldLabel: NX.I18n.get('LEGACY_ADMIN_ROUTING_SETTINGS_REPOSITORIES'),
-        helpText: NX.I18n.get('LEGACY_ADMIN_ROUTING_SETTINGS_REPOSITORIES_HELP'),
+        fieldLabel: NX.I18n.get('ADMIN_ROUTING_SETTINGS_REPOSITORIES'),
+        helpText: NX.I18n.get('ADMIN_ROUTING_SETTINGS_REPOSITORIES_HELP'),
         buttons: ['up', 'add', 'remove', 'down'],
-        fromTitle: NX.I18n.get('LEGACY_ADMIN_ROUTING_SETTINGS_AVAILABLE'),
-        toTitle: NX.I18n.get('LEGACY_ADMIN_ROUTING_SETTINGS_ORDERED'),
+        fromTitle: NX.I18n.get('ADMIN_ROUTING_SETTINGS_AVAILABLE'),
+        toTitle: NX.I18n.get('ADMIN_ROUTING_SETTINGS_ORDERED'),
         store: me.repositoryStore,
         valueField: 'id',
         displayField: 'name',

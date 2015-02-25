@@ -17,8 +17,8 @@
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.legacyrepository.LegacyRepositorySettingsHostedForm', {
-  extend: 'NX.coreui_legacy.view.legacyrepository.LegacyRepositorySettingsForm',
+Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsHostedForm', {
+  extend: 'NX.coreui_legacy.view.repository.RepositorySettingsForm',
   alias: 'widget.nx-repository-settings-hosted-form',
   requires: [
     'NX.I18n'

@@ -13,29 +13,34 @@
 /*global Ext, NX*/
 
 /**
- * Repository store.
+ * Add maven proxy repository window.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.store.LegacyRepository', {
-  extend: 'Ext.data.Store',
-  model: 'NX.coreui_legacy.model.LegacyRepository',
+Ext.define('NX.coreui_legacy.view.repository.RepositoryAddProxyMaven', {
+  extend: 'NX.coreui_legacy.view.repository.RepositoryAdd',
+  alias: ['widget.nx-repository-add-proxy-maven1', 'widget.nx-repository-add-proxy-maven2'],
+  requires: [
+    'NX.I18n'
+  ],
 
-  proxy: {
-    type: 'direct',
+  initComponent: function() {
+    var me = this;
 
-    api: {
-      read: 'NX.direct.coreui_legacy_Repository.read'
-    },
+    me.items = {
+      xtype: 'nx-repository-settings-proxy-maven2-form',
+      template: me.template,
+      api: {
+        submit: 'NX.direct.coreui_legacy_Repository.createProxyMaven'
+      },
+      settingsFormSuccessMessage: function(data) {
+        return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_CREATE_MAVEN_PROXY_SUCCESS') + data['id'];
+      }
+    };
 
-    reader: {
-      type: 'json',
-      root: 'data',
-      idProperty: 'id',
-      successProperty: 'success'
-    }
-  },
+    me.callParent(arguments);
 
-  sortOnLoad: true,
-  sorters: { property: 'name', direction: 'ASC' }
+    me.down('#repositoryPolicy').hide();
+  }
+
 });

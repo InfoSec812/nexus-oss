@@ -17,12 +17,12 @@
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.legacyrepository.LegacyRepositorySettingsProxyForm', {
-  extend: 'NX.coreui_legacy.view.legacyrepository.LegacyRepositorySettingsForm',
+Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsProxyForm', {
+  extend: 'NX.coreui_legacy.view.repository.RepositorySettingsForm',
   alias: 'widget.nx-repository-settings-proxy-form',
   requires: [
-    'NX.coreui_legacy.view.AuthenticationSettings',
-    'NX.coreui_legacy.view.HttpRequestSettings',
+    'NX.coreui.view.AuthenticationSettings',
+    'NX.coreui.view.HttpRequestSettings',
     'NX.I18n'
   ],
 

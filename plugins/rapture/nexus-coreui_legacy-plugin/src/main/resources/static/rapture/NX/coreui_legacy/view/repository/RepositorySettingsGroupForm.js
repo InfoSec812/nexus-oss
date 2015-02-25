@@ -17,11 +17,11 @@
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.legacyrepository.LegacyRepositorySettingsGroupForm', {
-  extend: 'NX.coreui_legacy.view.legacyrepository.LegacyRepositorySettingsForm',
+Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsGroupForm', {
+  extend: 'NX.coreui_legacy.view.repository.RepositorySettingsForm',
   alias: 'widget.nx-repository-settings-group-form',
   requires: [
-    'NX.coreui_legacy.store.RepositoryReference',
+    'NX.coreui.store.RepositoryReference',
     'NX.I18n'
   ],
 
@@ -35,7 +35,7 @@ Ext.define('NX.coreui_legacy.view.legacyrepository.LegacyRepositorySettingsGroup
   initComponent: function() {
     var me = this;
 
-    me.repositoryStore = Ext.create('NX.coreui_legacy.store.RepositoryReference', { remoteFilter: true });
+    me.repositoryStore = Ext.create('NX.coreui.store.RepositoryReference', { remoteFilter: true });
     me.repositoryStore.filter([
       { property: 'format', value: me.template.format },
       { property: 'includeNexusManaged', value: 'true' }

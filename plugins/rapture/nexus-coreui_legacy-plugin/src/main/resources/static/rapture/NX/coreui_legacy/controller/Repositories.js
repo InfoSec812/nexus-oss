@@ -17,7 +17,7 @@
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.controller.LegacyRepositories', {
+Ext.define('NX.coreui_legacy.controller.Repositories', {
   extend: 'NX.controller.Drilldown',
   requires: [
     'Ext.direct.Manager',
@@ -33,34 +33,34 @@ Ext.define('NX.coreui_legacy.controller.LegacyRepositories', {
   masters: 'nx-coreui_legacy-repository-list',
 
   models: [
-    'LegacyRepository',
+    'Repository',
     'NX.coreui.model.SearchResult'
   ],
   stores: [
-    'LegacyRepository',
+    'Repository',
     'RepositoryTemplate',
     'NX.coreui.store.SearchResult'
   ],
   views: [
-    'legacyrepository.LegacyRepositoryAdd',
-    'legacyrepository.LegacyRepositoryAddGroup',
-    'legacyrepository.LegacyRepositoryAddHosted',
-    'legacyrepository.LegacyRepositoryAddHostedMaven',
-    'legacyrepository.LegacyRepositoryAddProxy',
-    'legacyrepository.LegacyRepositoryAddProxyMaven',
-    'legacyrepository.LegacyRepositoryAddVirtual',
-    'legacyrepository.LegacyRepositoryFeature',
-    'legacyrepository.LegacyRepositoryList',
-    'legacyrepository.LegacyRepositorySelectTemplate',
-    'legacyrepository.LegacyRepositorySettings',
-    'legacyrepository.LegacyRepositorySettingsCommon',
-    'legacyrepository.LegacyRepositorySettingsGroupForm',
-    'legacyrepository.LegacyRepositorySettingsHostedForm',
-    'legacyrepository.LegacyRepositorySettingsHostedMavenForm',
-    'legacyrepository.LegacyRepositorySettingsLocalStorage',
-    'legacyrepository.LegacyRepositorySettingsProxyForm',
-    'legacyrepository.LegacyRepositorySettingsProxyMavenForm',
-    'legacyrepository.LegacyRepositorySettingsVirtualForm'
+    'repository.RepositoryAdd',
+    'repository.RepositoryAddGroup',
+    'repository.RepositoryAddHosted',
+    'repository.RepositoryAddHostedMaven',
+    'repository.RepositoryAddProxy',
+    'repository.RepositoryAddProxyMaven',
+    'repository.RepositoryAddVirtual',
+    'repository.RepositoryFeature',
+    'repository.RepositoryList',
+    'repository.RepositorySelectTemplate',
+    'repository.RepositorySettings',
+    'repository.RepositorySettingsCommon',
+    'repository.RepositorySettingsGroupForm',
+    'repository.RepositorySettingsHostedForm',
+    'repository.RepositorySettingsHostedMavenForm',
+    'repository.RepositorySettingsLocalStorage',
+    'repository.RepositorySettingsProxyForm',
+    'repository.RepositorySettingsProxyMavenForm',
+    'repository.RepositorySettingsVirtualForm'
   ],
   refs: [
     { ref: 'feature', selector: 'nx-coreui_legacy-repository-feature' },
@@ -436,7 +436,7 @@ Ext.define('NX.coreui_legacy.controller.LegacyRepositories', {
     var me = this;
 
     Ext.Array.each(repositoryStatuses, function(repositoryStatus) {
-      var repositoryModel = me.getLegacyRepositoryStore().getById(repositoryStatus.id);
+      var repositoryModel = me.getRepositoryStore().getById(repositoryStatus.id);
       if (repositoryModel) {
         repositoryModel.set('localStatus', repositoryStatus['localStatus']);
         repositoryModel.set('proxyMode', repositoryStatus['proxyMode']);

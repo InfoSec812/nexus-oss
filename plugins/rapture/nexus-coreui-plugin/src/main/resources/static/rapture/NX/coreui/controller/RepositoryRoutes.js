@@ -20,10 +20,11 @@
 Ext.define('NX.coreui.controller.RepositoryRoutes', {
   extend: 'NX.controller.Drilldown',
   requires: [
+    'NX.coreui_legacy.store.Repository',
     'NX.Dialogs',
     'NX.Messages',
     'NX.Permissions',
-    'NX.I18n'
+    'NX.I18n',
   ],
 
   masters: 'nx-coreui-repositoryroute-list',
@@ -33,7 +34,7 @@ Ext.define('NX.coreui.controller.RepositoryRoutes', {
   ],
   stores: [
     'RepositoryRoute',
-    'NX.coreui_legacy.store.LegacyRepository'
+    'NX.coreui_legacy.store.Repository'
   ],
   views: [
     'repositoryroute.RepositoryRouteAdd',
@@ -56,8 +57,8 @@ Ext.define('NX.coreui.controller.RepositoryRoutes', {
   features: {
     mode: 'admin',
     path: '/Repository/Routing',
-    text: NX.I18n.get('LEGACY_ADMIN_ROUTING_TITLE'),
-    description: NX.I18n.get('LEGACY_ADMIN_ROUTING_SUBTITLE'),
+    text: NX.I18n.get('ADMIN_ROUTING_TITLE'),
+    description: NX.I18n.get('ADMIN_ROUTING_SUBTITLE'),
     view: { xtype: 'nx-coreui-repositoryroute-feature' },
     iconConfig: {
       file: 'arrow_branch.png',
@@ -123,7 +124,7 @@ Ext.define('NX.coreui.controller.RepositoryRoutes', {
       feature = me.getFeature();
 
     // Show the first panel in the create wizard, and set the breadcrumb
-    feature.setItemName(1, NX.I18n.get('LEGACY_ADMIN_ROUTING_CREATE_TITLE'));
+    feature.setItemName(1, NX.I18n.get('ADMIN_ROUTING_CREATE_TITLE'));
     me.loadCreateWizard(1, true, Ext.create('widget.nx-coreui-repositoryroute-add'));
   },
 

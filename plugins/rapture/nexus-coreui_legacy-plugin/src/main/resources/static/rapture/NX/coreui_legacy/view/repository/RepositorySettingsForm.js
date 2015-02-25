@@ -13,29 +13,40 @@
 /*global Ext, NX*/
 
 /**
- * Select repository template window.
+ * Repository "Settings" form.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.legacyrepository.LegacyRepositorySelectTemplate', {
-  extend: 'NX.view.drilldown.Master',
-  alias: 'widget.nx-coreui_legacy-repository-selecttemplate',
+Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsForm', {
+  extend: 'NX.view.SettingsForm',
+  alias: 'widget.nx-coreui_legacy-repository-settings-form',
   requires: [
+    'NX.Conditions',
     'NX.I18n'
   ],
 
-  store: 'LegacyRepositoryTemplate',
-  columns: [
-    {
-      xtype: 'nx-iconcolumn',
-      width: 36,
-      iconVariant: 'x16',
-      iconName: function() {
-        return 'repository-default';
+  /**
+   * @cfg template repository template object
+   */
+
+  editableMarker: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_UPDATE_ERROR'),
+
+  initComponent: function() {
+    var me = this;
+
+    me.editableCondition = me.editableCondition || NX.Conditions.isPermitted('nexus:repositories', 'update');
+
+    me.items = me.items || [];
+    Ext.Array.insert(me.items, 0, [
+      {
+        xtype: 'nx-coreui_legacy-repository-settings-common'
       }
-    },
-    { header: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SELECT_PROVIDER_COLUMN'), dataIndex: 'providerName', flex: 2 },
-    { header: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_SELECT_TYPE_COLUMN'), dataIndex: 'type', flex: 1 }
-  ]
+    ]);
+
+    me.callParent(arguments);
+
+    me.down('#providerName').setValue(me.template.providerName);
+    me.down('#formatName').setValue(me.template.formatName);
+  }
 
 });

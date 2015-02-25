@@ -13,13 +13,13 @@
 /*global Ext, NX*/
 
 /**
- * Add repository group window.
+ * Add hosted repository window.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui_legacy.view.legacyrepository.LegacyRepositoryAddGroup', {
-  extend: 'NX.coreui_legacy.view.legacyrepository.LegacyRepositoryAdd',
-  alias: 'widget.nx-repository-add-group',
+Ext.define('NX.coreui_legacy.view.repository.RepositoryAddHosted', {
+  extend: 'NX.coreui_legacy.view.repository.RepositoryAdd',
+  alias: 'widget.nx-repository-add-hosted',
   requires: [
     'NX.I18n'
   ],
@@ -28,13 +28,13 @@ Ext.define('NX.coreui_legacy.view.legacyrepository.LegacyRepositoryAddGroup', {
     var me = this;
 
     me.items = {
-      xtype: 'nx-repository-settings-group-form',
+      xtype: 'nx-repository-settings-hosted-form',
       template: me.template,
       api: {
-        submit: 'NX.direct.coreui_legacy_Repository.createGroup'
+        submit: 'NX.direct.coreui_legacy_Repository.createHosted'
       },
       settingsFormSuccessMessage: function(data) {
-        return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_CREATE_GROUP_SUCCESS') + data['id'];
+        return NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_CREATE_HOSTED_SUCCESS') + data['id'];
       }
     };
 

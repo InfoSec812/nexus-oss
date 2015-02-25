@@ -20,6 +20,7 @@
 Ext.define('NX.coreui.controller.HealthCheckRepositoryColumn', {
   extend: 'Ext.app.Controller',
   requires: [
+    'NX.coreui_legacy.store.Repository',
     'Ext.grid.column.Column',
     'Ext.ToolTip',
     'NX.Conditions',
@@ -33,7 +34,7 @@ Ext.define('NX.coreui.controller.HealthCheckRepositoryColumn', {
   ],
   stores: [
     'HealthCheckRepositoryStatus',
-    'NX.coreui_legacy.store.LegacyRepository'
+    'NX.coreui_legacy.store.Repository'
   ],
   views: [
     'healthcheck.HealthCheckSummary'
@@ -56,7 +57,7 @@ Ext.define('NX.coreui.controller.HealthCheckRepositoryColumn', {
         }
       },
       store: {
-        '#LegacyRepository': {
+        '#Repository': {
           load: me.loadHealthCheckStatus
         },
         '#HealthCheckRepositoryStatus': {
