@@ -99,7 +99,7 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsProxyForm', {
         checkboxName: 'authEnabled',
         collapsed: true,
         items: {
-          xtype: 'nx-coreui_legacy-authenticationsettings'
+          xtype: 'nx-coreui-authenticationsettings'
         }
       },
       {
@@ -109,7 +109,7 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsProxyForm', {
         checkboxName: 'httpRequestSettings',
         collapsed: true,
         items: {
-          xtype: 'nx-coreui_legacy-httprequestsettings'
+          xtype: 'nx-coreui-httprequestsettings'
         }
       }
     ];
