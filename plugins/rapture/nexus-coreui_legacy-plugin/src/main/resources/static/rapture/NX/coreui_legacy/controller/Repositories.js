@@ -203,7 +203,7 @@ Ext.define('NX.coreui_legacy.controller.Repositories', {
 
     if (cmpClass) {
       // Show the second panel in the create wizard, and set the breadcrumb
-      feature.setItemName(2, NX.I18n.format('ADMIN_REPOSITORIES_CREATE_TITLE', template.providerName));
+      feature.setItemName(2, NX.I18n.format('LEGACY_ADMIN_REPOSITORIES_CREATE_TITLE', template.providerName));
       me.loadCreateWizard(2, true, cmpClass.create({ template: template }));
     }
   },
@@ -365,7 +365,7 @@ Ext.define('NX.coreui_legacy.controller.Repositories', {
       me.loadStore();
       if (Ext.isObject(response) && response.success) {
         NX.Messages.add({
-          text: NX.I18n.format('ADMIN_REPOSITORIES_DETAILS_DELETE_SUCCESS', description), type: 'success'
+          text: NX.I18n.format('LEGACY_ADMIN_REPOSITORIES_DETAILS_DELETE_SUCCESS', description), type: 'success'
         });
       }
     });
@@ -468,7 +468,7 @@ Ext.define('NX.coreui_legacy.controller.Repositories', {
     NX.direct.coreui_legacy_Repository.clearCache(model.getId(), '/', function(response) {
       if (Ext.isObject(response) && response.success) {
         NX.Messages.add({
-          text: NX.I18n.format('ADMIN_REPOSITORIES_DETAILS_EXPIRE_SUCCESS', model.get('name')),
+          text: NX.I18n.format('LEGACY_ADMIN_REPOSITORIES_DETAILS_EXPIRE_SUCCESS', model.get('name')),
           type: 'success'
         });
       }
@@ -483,7 +483,7 @@ Ext.define('NX.coreui_legacy.controller.Repositories', {
     NX.direct.coreui_legacy_Maven.rebuildMetadata(model.getId(), '/', function(response) {
       if (Ext.isObject(response) && response.success) {
         NX.Messages.add({
-          text: NX.I18n.format('ADMIN_REPOSITORIES_DETAILS_REBUILD_SUCCESS', model.get('name')),
+          text: NX.I18n.format('LEGACY_ADMIN_REPOSITORIES_DETAILS_REBUILD_SUCCESS', model.get('name')),
           type: 'success'
         });
       }
@@ -501,7 +501,7 @@ Ext.define('NX.coreui_legacy.controller.Repositories', {
       if (Ext.isObject(response) && response.success) {
         me.loadStore();
         NX.Messages.add({
-          text: NX.I18n.format('ADMIN_REPOSITORIES_DETAILS_BLOCK_SUCCESS', model.get('name')),
+          text: NX.I18n.format('LEGACY_ADMIN_REPOSITORIES_DETAILS_BLOCK_SUCCESS', model.get('name')),
           type: 'success'
         });
       }
@@ -519,7 +519,7 @@ Ext.define('NX.coreui_legacy.controller.Repositories', {
       if (Ext.isObject(response) && response.success) {
         me.loadStore();
         NX.Messages.add({
-          text: NX.I18n.format('ADMIN_REPOSITORIES_DETAILS_ALLOW_SUCCESS', model.get('name')),
+          text: NX.I18n.format('LEGACY_ADMIN_REPOSITORIES_DETAILS_ALLOW_SUCCESS', model.get('name')),
           type: 'success'
         });
       }
@@ -537,7 +537,7 @@ Ext.define('NX.coreui_legacy.controller.Repositories', {
       if (Ext.isObject(response) && response.success) {
         me.loadStore();
         NX.Messages.add({
-          text: NX.I18n.format('ADMIN_REPOSITORIES_DETAILS_POOS_SUCCESS', model.get('name')),
+          text: NX.I18n.format('LEGACY_ADMIN_REPOSITORIES_DETAILS_POOS_SUCCESS', model.get('name')),
           type: 'success'
         });
       }
@@ -555,7 +555,7 @@ Ext.define('NX.coreui_legacy.controller.Repositories', {
       if (Ext.isObject(response) && response.success) {
         me.loadStore();
         NX.Messages.add({
-          text: NX.I18n.format('ADMIN_REPOSITORIES_DETAILS_PRIS_SUCCESS', model.get('name')),
+          text: NX.I18n.format('LEGACY_ADMIN_REPOSITORIES_DETAILS_PRIS_SUCCESS', model.get('name')),
           type: 'success'
         });
       }
@@ -570,7 +570,7 @@ Ext.define('NX.coreui_legacy.controller.Repositories', {
     NX.direct.indexerLucene_Index.repair(model.getId(), '/', function(response) {
       if (Ext.isObject(response) && response.success) {
         NX.Messages.add({
-          text: NX.I18n.format('ADMIN_REPOSITORIES_DETAILS_REPAIR_SUCCESS', model.get('name')),
+          text: NX.I18n.format('LEGACY_ADMIN_REPOSITORIES_DETAILS_REPAIR_SUCCESS', model.get('name')),
           type: 'success'
         });
       }
@@ -585,7 +585,7 @@ Ext.define('NX.coreui_legacy.controller.Repositories', {
     NX.direct.indexerLucene_Index.update(model.getId(), '/', function(response) {
       if (Ext.isObject(response) && response.success) {
         NX.Messages.add({
-          text: NX.I18n.format('ADMIN_REPOSITORIES_DETAILS_UPDATE_SUCCESS', model.get('name')),
+          text: NX.I18n.format('LEGACY_ADMIN_REPOSITORIES_DETAILS_UPDATE_SUCCESS', model.get('name')),
           type: 'success'
         });
       }

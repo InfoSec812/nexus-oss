@@ -291,7 +291,7 @@ Ext.define('NX.coreui.controller.HealthCheckRepositoryColumn', {
       list.healthCheckTooltip.hide();
       Ext.Msg.show({
         title: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_ANALYZE_DIALOG'),
-        msg: NX.I18n.format('ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_ANALYZE_DIALOG_HELP', Ext.util.Format.htmlEncode(repositoryModel.get('name'))),
+        msg: NX.I18n.format('LEGACY_ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_ANALYZE_DIALOG_HELP', Ext.util.Format.htmlEncode(repositoryModel.get('name'))),
         buttons: 7, // OKYESNO
         buttonText: {
           ok: NX.I18n.get('LEGACY_ADMIN_REPOSITORIES_LIST_HEALTH_CHECK_ANALYZE_DIALOG_OK'),

@@ -59,7 +59,7 @@ Ext.define('NX.coreui.view.analytics.AnalyticsEventList', {
       flex: 1,
     },
     {
-      header: 'Sequence',
+      header: NX.I18n.get('ADMIN_EVENTS_SEQUENCE_COLUMN'),
       dataIndex: 'sequence',
       flex: 1,
     },
