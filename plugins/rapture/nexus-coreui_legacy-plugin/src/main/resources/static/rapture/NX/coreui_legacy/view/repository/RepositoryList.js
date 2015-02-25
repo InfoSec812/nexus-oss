@@ -24,7 +24,7 @@ Ext.define('NX.coreui_legacy.view.repository.RepositoryList', {
     'NX.I18n'
   ],
 
-  store: 'Repository',
+  store: 'NX.coreui_legacy.store.Repository',
 
   /*
    * @override
