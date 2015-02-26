@@ -13,16 +13,30 @@
 /*global Ext, NX*/
 
 /**
- * Search result model.
+ * Repository reference store.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui.model.SearchResult', {
-  extend: 'Ext.data.Model',
-  fields: [
-    'id',
-    'groupId',
-    'artifactId',
-    'format'
-  ]
+Ext.define('NX.coreui_legacy.store.RepositoryReference', {
+  extend: 'Ext.data.Store',
+  model: 'NX.coreui_legacy.model.RepositoryReference',
+
+  proxy: {
+    type: 'direct',
+
+    api: {
+      read: 'NX.direct.coreui_legacy_Repository.readReferences'
+    },
+
+    reader: {
+      type: 'json',
+      root: 'data',
+      idProperty: 'id',
+      successProperty: 'success'
+    }
+  },
+
+  sortOnLoad: true,
+  sorters: { property: 'name', direction: 'ASC' }
+
 });

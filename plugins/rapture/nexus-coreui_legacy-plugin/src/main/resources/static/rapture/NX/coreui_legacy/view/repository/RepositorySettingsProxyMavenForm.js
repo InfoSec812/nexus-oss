@@ -24,8 +24,8 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsProxyMavenForm', 
     'widget.nx-repository-settings-proxy-maven2-form'
   ],
   requires: [
-    'NX.coreui.view.AuthenticationSettings',
-    'NX.coreui.view.HttpRequestSettings',
+    'NX.coreui_legacy.view.AuthenticationSettings',
+    'NX.coreui_legacy.view.HttpRequestSettings',
     'NX.I18n'
   ],
 
@@ -164,7 +164,7 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsProxyMavenForm', 
         checkboxName: 'authEnabled',
         collapsed: true,
         items: {
-          xtype: 'nx-coreui-authenticationsettings'
+          xtype: 'nx-coreui_legacy-authenticationsettings'
         }
       },
       {
@@ -174,7 +174,7 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsProxyMavenForm', 
         checkboxName: 'httpRequestSettings',
         collapsed: true,
         items: {
-          xtype: 'nx-coreui-httprequestsettings'
+          xtype: 'nx-coreui_legacy-httprequestsettings'
         }
       }
     ];

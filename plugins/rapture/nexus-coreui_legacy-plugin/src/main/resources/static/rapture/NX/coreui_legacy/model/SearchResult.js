@@ -13,28 +13,16 @@
 /*global Ext, NX*/
 
 /**
- * Search result store.
+ * Search result model.
  *
  * @since 3.0
  */
-Ext.define('NX.coreui.store.SearchResult', {
-  extend: 'Ext.data.Store',
-  model: 'NX.coreui.model.SearchResult',
-
-  proxy: {
-    type: 'direct',
-
-    api: {
-      read: 'NX.direct.coreui_Search.read'
-    },
-
-    reader: {
-      type: 'json',
-      root: 'data',
-      successProperty: 'success'
-    }
-  },
-
-  remoteFilter: true
-
+Ext.define('NX.coreui_legacy.model.SearchResult', {
+  extend: 'Ext.data.Model',
+  fields: [
+    'id',
+    'groupId',
+    'artifactId',
+    'format'
+  ]
 });

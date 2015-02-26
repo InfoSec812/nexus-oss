@@ -17,9 +17,9 @@
  *
  * @since 3.0
  */
-Ext.define('NX.coreui.view.HttpRequestSettings', {
+Ext.define('NX.coreui_legacy.view.HttpRequestSettings', {
   extend: 'Ext.form.FieldContainer',
-  alias: 'widget.nx-coreui-httprequestsettings',
+  alias: 'widget.nx-coreui_legacy-httprequestsettings',
   requires: [
     'NX.I18n'
   ],

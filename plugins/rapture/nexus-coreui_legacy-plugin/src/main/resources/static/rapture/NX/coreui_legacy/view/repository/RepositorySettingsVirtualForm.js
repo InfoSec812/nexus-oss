@@ -21,7 +21,7 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsVirtualForm', {
   extend: 'NX.coreui_legacy.view.repository.RepositorySettingsForm',
   alias: 'widget.nx-repository-settings-virtual-form',
   requires: [
-    'NX.coreui.store.RepositoryReference',
+    'NX.coreui_legacy.store.RepositoryReference',
     'NX.I18n'
   ],
 
@@ -35,7 +35,7 @@ Ext.define('NX.coreui_legacy.view.repository.RepositorySettingsVirtualForm', {
   initComponent: function() {
     var me = this;
 
-    me.repositoryStore = Ext.create('NX.coreui.store.RepositoryReference', { remoteFilter: true });
+    me.repositoryStore = Ext.create('RepositoryReference', { remoteFilter: true });
     if (me.template['masterFormat']) {
       me.repositoryStore.filter({ property: 'format', value: me.template['masterFormat'] });
     }

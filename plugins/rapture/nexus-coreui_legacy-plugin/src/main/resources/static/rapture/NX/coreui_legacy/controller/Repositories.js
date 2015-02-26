@@ -34,12 +34,12 @@ Ext.define('NX.coreui_legacy.controller.Repositories', {
 
   models: [
     'Repository',
-    'NX.coreui.model.SearchResult'
+    'SearchResult'
   ],
   stores: [
     'Repository',
     'RepositoryTemplate',
-    'NX.coreui.store.SearchResult'
+    'SearchResult'
   ],
   views: [
     'repository.RepositoryAdd',
